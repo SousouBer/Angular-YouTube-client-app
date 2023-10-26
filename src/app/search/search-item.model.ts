@@ -15,7 +15,7 @@ export interface SearchItem {
     statistics: Statistics,
 }
 
-export interface Snippet {
+interface Snippet {
     publishedAt: string;
     channelId: string;
     title: string;
@@ -29,13 +29,13 @@ export interface Snippet {
     };
 }
 
-export interface Thumbnail {
+interface Thumbnail {
     url: string;
     width: number;
     height: number;
 }
 
-export interface Statistics {
+interface Statistics {
     viewCount: number,
     likeCount: number,
     dislikeCount: number,
