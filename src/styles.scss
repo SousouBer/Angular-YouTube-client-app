@@ -1,1 +1,117 @@
 /* You can add global styles to this file, and also import other style files */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+}
+
+//  Header styles
+.header {
+  background-color: #d9d9d9;
+  padding: 0.5rem 0 1rem 0;
+}
+
+.header-settings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.header-search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 30rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: inherit;
+  font-style: inherit;
+  border: none;
+  outline: none;
+}
+
+.search-btn {
+  margin-left: 0.2rem;
+  background-color: #6666ff;
+  border: none;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  font-size: inherit;
+  font-style: inherit;
+}
+
+.configuration {
+  flex: 0;
+  width: 2rem;
+  color: green;
+}
+
+.login-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+
+.login-logo {
+  width: 3rem;
+}
+
+.filter-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.filter-by-word {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.filter-by-word input {
+  border: none;
+  width: 15rem;
+  border-radius: 3px;
+  font-size: inherit;
+  padding: 0.15rem 0.2rem 0.15rem 0.2rem;
+  font-size: 0.8rem;
+  outline: none;
+}
