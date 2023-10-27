@@ -14,6 +14,7 @@ html {
 
 body {
   font-family: "Rubik", sans-serif;
+  background-color: #d9d9d9;
 }
 
 //  Header styles
@@ -21,6 +22,7 @@ body {
   background-color: #d9d9d9;
   padding: 0.5rem 0 1rem 0;
 }
+
 
 .header-settings {
   display: flex;
@@ -35,7 +37,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
 }
 
 .search-form {
@@ -53,9 +54,18 @@ body {
   outline: none;
 }
 
+.youtube-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.youtube-logo {
+  width: 3.5rem;
+}
+
 .search-btn {
-  margin-left: 0.2rem;
-  background-color: #6666ff;
+  margin-left: 0.25rem;
+  background-color: #2F80ED;
   border: none;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   border-radius: 3px;
@@ -66,10 +76,16 @@ body {
   font-style: inherit;
 }
 
-.configuration {
-  flex: 0;
+.settings-container {
   width: 2rem;
-  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-container img {
+  width: 100%;
+  height: 100%;
 }
 
 .login-info {
