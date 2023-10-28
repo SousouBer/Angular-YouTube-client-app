@@ -1,3 +1,3 @@
 <section class="search-results">
-  <app-search-item *ngFor="let item of SearchItems" [searchItem]="item"></app-search-item>
+  <app-search-item *ngFor="let item of SearchItems | filterItems:filter" [searchItem]="item"></app-search-item>
 </section>
