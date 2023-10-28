@@ -3,7 +3,7 @@ export interface SearchItem {
     etag: string;
     id: string;
     snippet: Snippet,
-    channeltitle: string,
+    channelTitle: string,
     tags: string[],
     categoryId: number,
     liveBroadcastContent: string,
@@ -23,7 +23,7 @@ interface Snippet {
     thumbnails: {
         default: Thumbnail;
         medium: Thumbnail;
-        hight: Thumbnail;
+        high: Thumbnail;
         standard: Thumbnail;
         maxres: Thumbnail;
     };
@@ -36,9 +36,9 @@ interface Thumbnail {
 }
 
 interface Statistics {
-    viewCount: number,
-    likeCount: number,
-    dislikeCount: number,
-    favouriteCount: number,
-    commentCount: number,
+    viewCount: string,
+    likeCount: string,
+    dislikeCount: string,
+    favoriteCount: string,
+    commentCount: string,
 }

@@ -1,4 +1,9 @@
 .search-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
   background-color: #fff;
   width: 100%;
 }

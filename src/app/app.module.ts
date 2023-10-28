@@ -1,5 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
@@ -16,7 +18,8 @@ import { SearchResultsComponent } from "./search/search-results/search-results.c
         SearchResultsComponent,
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
