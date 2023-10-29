@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
-import { bottomBorder } from "./directives/bottom-border.directive";
+import { BottomBorderDirective } from "./directives/bottom-border.directive";
 import { FilteringCriteriaComponent } from "./filtering-criteria/filtering-criteria.component";
 import { HeaderComponent } from "./header/header.component";
 import { FilterPipe } from "./pipes/filter.pipe";
@@ -19,7 +19,7 @@ import { SearchResultsComponent } from "./search/search-results/search-results.c
         SearchComponent,
         SearchItemComponent,
         SearchResultsComponent,
-        bottomBorder,
+        BottomBorderDirective,
         FilterPipe,
         FilteringCriteriaComponent
     ],

@@ -15,7 +15,7 @@ export class BottomBorderDirective implements OnInit {
     constructor(private elRef: ElementRef, private renderer: Renderer2) {}
 
     ngOnInit(): void {
-        this.searchElementDate = new Date(this.publishedAtProps);
+        this.searchElementDate = new Date(this.appSetBottomBorder);
         this.getSpecificColor();
 
         this.renderer.setStyle(
