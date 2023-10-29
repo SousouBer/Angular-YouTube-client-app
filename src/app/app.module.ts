@@ -12,6 +12,7 @@ import { SearchResultsComponent } from "./search/search-results/search-results.c
 import { bottomBorder } from "./directives/bottom-border.directive";
 import { FilterPipe } from "./pipes/filter.pipe";
 import { FilteringCriteriaComponent } from './filtering-criteria/filtering-criteria.component';
+import { FilterDateViewsService } from "./services/filter-date-views.service";
 
 @NgModule({
     declarations: [

@@ -3,6 +3,7 @@ import { SearchItem } from "../search-item.model";
 import { ResponseItem } from "../search-response.model";
 import { HttpClient } from "@angular/common/http";
 import { FilterByWordsService } from "src/app/services/filter-by-words.service";
+import { BehaviorSubject, Subject } from "rxjs";
 
 @Component({
     selector: "app-search-results",
@@ -18,14 +19,24 @@ export class SearchResultsComponent implements OnInit {
   constructor(private http: HttpClient, private filterWords: FilterByWordsService){}
 
   ngOnInit(): void {
-    this.http.get<ResponseItem>("/assets/mock.response.json").subscribe(response => {
-      this.MockResponse = response;
-      this.SearchItems = response.items;
+   this.filterWords.data.subscribe(data => {
+      this.SearchItems = data;
     })
 
     this.filterWords.getWords().subscribe(words => {
       this.filter = words;
-      console.log(this.filter);
+    })
+
+    this.filterWords.viewsIsAscending.subscribe(value => {
+      if(value){
+        const res = this.filterWords.sortAscending(this.SearchItems.slice());
+        this.filterWords.updateData(res);
+      } else {
+        const res = this.filterWords.sortDescending(this.SearchItems.slice());
+        this.filterWords.updateData(res);
+      }
     })
   }
 }
+
+

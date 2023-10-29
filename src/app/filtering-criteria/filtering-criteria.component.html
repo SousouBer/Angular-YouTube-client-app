@@ -1,7 +1,7 @@
 <section class="filter-options">
   <span>Sorting by: </span>
   <div class="filters">
-    <a href="#">Date</a>
+    <a class="filter-date" (click)="filterByDate()">Date <span [ngStyle]="{'font-size': '10px'}">{{ directionText }}</span></a>
     <a href="#">Count of views</a>
     <div class="filter-by-word">
       <a href="#">By word or sentence</a>
