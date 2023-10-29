@@ -6,14 +6,14 @@ import { Component } from "@angular/core";
     styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  resultBlockIsShown: boolean = false;
-  showOrHideSettings: boolean = false;
+    resultBlockIsShown = false;
+    showOrHideSettings = false;
 
-  showResults(value: boolean){
-    this.resultBlockIsShown = value;
-  }
+    showResults(value: boolean) {
+        this.resultBlockIsShown = value;
+    }
 
-  toggleSettings(value: boolean) {
-    this.showOrHideSettings = value;
-  }
+    toggleSettings(value: boolean) {
+        this.showOrHideSettings = value;
+    }
 }

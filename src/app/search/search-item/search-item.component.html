@@ -1,31 +1,31 @@
-<div class="card-container" [setBottomBorder]="searchItemProps.snippet.publishedAt">
+<div class="card-container" [appSetBottomBorder]="searchItem.snippet.publishedAt">
   <div class="img-container">
     <img [src]="videoThumbnail" alt="Video image" />
   </div>
   <div class="card-info">
     <div class="views-container">
       <img src="../../../assets/logos/viewed.png" alt="Views" />
-      <span class="views">{{ searchItemProps.statistics.viewCount }}</span>
+      <span class="views">{{ searchItem.statistics.viewCount }}</span>
     </div>
     <div class="likes-container">
       <img src="../../../assets/logos/liked.png" alt="Likes" />
-      <span class="likes">{{ searchItemProps.statistics.likeCount }}</span>
+      <span class="likes">{{ searchItem.statistics.likeCount }}</span>
     </div>
     <div class="dislikes-container">
       <img src="../../../assets/logos/dislike.png" alt="disikes" />
       <span class="dislikes">{{
-        searchItemProps.statistics.dislikeCount
+        searchItem.statistics.dislikeCount
       }}</span>
     </div>
     <div class="comments-container">
       <img src="../../../assets/logos/comments.png" alt="comments" />
       <span class="comments">{{
-        searchItemProps.statistics.commentCount
+        searchItem.statistics.commentCount
       }}</span>
     </div>
   </div>
   <div class="card-title-wrapper">
-    <h3 class="card-title">{{ searchItemProps.snippet.title }}</h3>
+    <h3 class="card-title">{{ searchItem.snippet.title }}</h3>
   </div>
   <button class="card-btn-more" type="button">more...</button>
 </div>

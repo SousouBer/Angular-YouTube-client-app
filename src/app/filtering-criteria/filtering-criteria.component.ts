@@ -1,27 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { FilterByWordsService } from '../services/filter-by-words.service';
+import { Component } from "@angular/core";
+
+import { FilterByWordsService } from "../services/filter-by-words.service";
 
 @Component({
-  selector: 'app-filtering-criteria',
-  templateUrl: './filtering-criteria.component.html',
-  styleUrls: ['./filtering-criteria.component.scss'],
+    selector: "app-filtering-criteria",
+    templateUrl: "./filtering-criteria.component.html",
+    styleUrls: ["./filtering-criteria.component.scss"],
 })
 export class FilteringCriteriaComponent {
-  filterByWords: string = '';
+    filterByWords = "";
 
-  isAscending: boolean = false;
-  directionText: string = '';
+    isAscending = false;
+    directionText = "";
 
-  constructor(private filterService: FilterByWordsService) {}
+    constructor(private filterService: FilterByWordsService) {}
 
-  updateValue() {
-    this.filterService.updateValue(this.filterByWords);
-  }
+    updateValue() {
+        this.filterService.updateValue(this.filterByWords);
+    }
 
-  filterByDate() {
-    this.isAscending = !this.isAscending;
-    this.directionText = this.isAscending ? 'Ascending' : 'Descending';
+    filterByDate() {
+        this.isAscending = !this.isAscending;
+        this.directionText = this.isAscending ? "Ascending" : "Descending";
 
-    this.filterService.viewsIsAscending.next(this.isAscending);
-  }
+        this.filterService.viewsIsAscending.next(this.isAscending);
+    }
 }

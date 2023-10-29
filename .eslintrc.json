@@ -21,6 +21,7 @@
           ],
           "rules": {
               // ESLint rules
+              "no-restricted-syntax": "off",
               "no-console": "off",
               "class-methods-use-this": "off",
               "import/prefer-default-export": "off",

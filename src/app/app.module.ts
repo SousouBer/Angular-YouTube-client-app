@@ -1,18 +1,16 @@
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
-
+import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
+import { bottomBorder } from "./directives/bottom-border.directive";
+import { FilteringCriteriaComponent } from "./filtering-criteria/filtering-criteria.component";
 import { HeaderComponent } from "./header/header.component";
+import { FilterPipe } from "./pipes/filter.pipe";
 import { SearchComponent } from "./search/search.component";
 import { SearchItemComponent } from "./search/search-item/search-item.component";
 import { SearchResultsComponent } from "./search/search-results/search-results.component";
-import { bottomBorder } from "./directives/bottom-border.directive";
-import { FilterPipe } from "./pipes/filter.pipe";
-import { FilteringCriteriaComponent } from './filtering-criteria/filtering-criteria.component';
-import { FilterDateViewsService } from "./services/filter-date-views.service";
 
 @NgModule({
     declarations: [
