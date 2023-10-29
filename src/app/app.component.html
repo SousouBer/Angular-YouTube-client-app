@@ -1,3 +1,3 @@
-<app-header></app-header>
-<app-filtering-criteria></app-filtering-criteria>
-<app-search></app-search>
+<app-header (showResults)="showResults($event)" (shareToggleSettings)="toggleSettings($event)"></app-header>
+<app-filtering-criteria *ngIf="showOrHideSettings && resultBlockIsShown"></app-filtering-criteria>
+<app-search *ngIf="resultBlockIsShown"></app-search>
