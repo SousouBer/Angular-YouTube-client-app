@@ -8,7 +8,7 @@ import { ResponseItem } from "../search/search-response.model";
 @Injectable({
     providedIn: "root",
 })
-export class FilterByWordsService {
+export class ItemsService {
     filteringWords = new BehaviorSubject<string>("");
     viewsIsAscending = new BehaviorSubject<boolean>(false);
     likesIsAscending = new BehaviorSubject<boolean>(false);
@@ -16,6 +16,7 @@ export class FilterByWordsService {
 
     data = this.itemsData.asObservable();
 
+    // Is this is a correct approach to make an HTTP request in the constructor of a service?
     constructor(private http: HttpClient) {
         this.http
             .get<ResponseItem>("../assets/mock.response.json")
@@ -24,13 +25,12 @@ export class FilterByWordsService {
             });
     }
 
-    updateData(value: SearchItem[]) {
-        this.itemsData.next(value);
-        console.log(this.data);
+    updateData(updateData: SearchItem[]) {
+        this.itemsData.next(updateData);
     }
 
-    updateValue(newValue: string) {
-        this.filteringWords.next(newValue);
+    updateValue(updatedValue: string) {
+        this.filteringWords.next(updatedValue);
     }
 
     getWords() {
@@ -38,8 +38,8 @@ export class FilterByWordsService {
     }
 
     // Sort data using 'Views' button from another component
-    updateViewsBoolean(newValue: boolean) {
-        this.viewsIsAscending.next(newValue);
+    updateViewsBoolean(updatedValue: boolean) {
+        this.viewsIsAscending.next(updatedValue);
     }
 
     sortAscending(data: SearchItem[]) {
