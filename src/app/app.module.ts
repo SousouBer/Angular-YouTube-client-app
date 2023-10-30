@@ -11,6 +11,8 @@ import { FilterPipe } from "./pipes/filter.pipe";
 import { SearchComponent } from "./search/search.component";
 import { SearchItemComponent } from "./search/search-item/search-item.component";
 import { SearchResultsComponent } from "./search/search-results/search-results.component";
+import { CustomButtonComponent } from "./custom-button/custom-button.component";
+
 
 @NgModule({
     declarations: [
@@ -26,7 +28,8 @@ import { SearchResultsComponent } from "./search/search-results/search-results.c
     imports: [
         BrowserModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        CustomButtonComponent
     ],
     providers: [],
     bootstrap: [AppComponent]
