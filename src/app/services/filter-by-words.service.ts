@@ -11,6 +11,7 @@ import { ResponseItem } from "../search/search-response.model";
 export class FilterByWordsService {
     filteringWords = new BehaviorSubject<string>("");
     viewsIsAscending = new BehaviorSubject<boolean>(false);
+    likesIsAscending = new BehaviorSubject<boolean>(false);
     itemsData = new BehaviorSubject<SearchItem[]>([]);
 
     data = this.itemsData.asObservable();
@@ -53,5 +54,13 @@ export class FilterByWordsService {
             (a: SearchItem, b: SearchItem) => Number(new Date(b.snippet.publishedAt))
         - Number(new Date(a.snippet.publishedAt))
         );
+    }
+
+    sortByLikesAscending(data: SearchItem[]){
+      return data.sort((a: SearchItem, b: SearchItem) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount))
+    }
+
+    sortByLikesDescending(data: SearchItem[]){
+      return data.sort((a: SearchItem, b: SearchItem) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount))
     }
 }

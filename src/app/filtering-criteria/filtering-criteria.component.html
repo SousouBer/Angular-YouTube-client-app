@@ -1,10 +1,10 @@
 <section class="filter-options">
   <span>Sorting by: </span>
   <div class="filters">
-    <a class="filter-date" (click)="filterByDate()">Date <span [ngStyle]="{'font-size': '10px'}">{{ directionText }}</span></a>
-    <a href="#">Count of views</a>
+    <a class="filter-date" (click)="filterByDate()">Date</a>
+    <a class="filter-views" (click)="filterByViews()">Count of views</a>
     <div class="filter-by-word">
-      <a href="#">By word or sentence</a>
+      <span>By word or sentence</span>
       <input type="text" [(ngModel)]="filterByWords" (keyup)="updateValue()"/>
     </div>
   </div>

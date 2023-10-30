@@ -29,6 +29,8 @@ export class SearchResultsComponent implements OnInit {
 
         this.filterWords.viewsIsAscending.subscribe((value) => {
             if (value) {
+              // Pass a copy of the array in order to trigger the change detection and
+              //  have the UI updated.
                 const res = this.filterWords.sortAscending(this.SearchItems.slice());
                 this.filterWords.updateData(res);
             } else {
@@ -36,5 +38,15 @@ export class SearchResultsComponent implements OnInit {
                 this.filterWords.updateData(res);
             }
         });
+
+        this.filterWords.likesIsAscending.subscribe(value => {
+          if(value){
+            const res = this.filterWords.sortByLikesAscending(this.SearchItems.slice());
+            this.filterWords.updateData(res);
+          } else {
+            const res = this.filterWords.sortByLikesDescending(this.SearchItems.slice())
+            this.filterWords.updateData(res);
+          }
+        })
     }
 }

@@ -9,20 +9,24 @@ import { FilterByWordsService } from "../services/filter-by-words.service";
 })
 export class FilteringCriteriaComponent {
     filterByWords = "";
-
     isAscending = false;
-    directionText = "";
+    likesIsAscending = false;
 
     constructor(private filterService: FilterByWordsService) {}
 
     updateValue() {
-        this.filterService.updateValue(this.filterByWords);
+      this.filterService.updateValue(this.filterByWords);
     }
 
     filterByDate() {
         this.isAscending = !this.isAscending;
-        this.directionText = this.isAscending ? "Ascending" : "Descending";
 
         this.filterService.viewsIsAscending.next(this.isAscending);
+    }
+
+    filterByViews(){
+      this.likesIsAscending = !this.likesIsAscending;
+
+      this.filterService.likesIsAscending.next(this.likesIsAscending);
     }
 }
