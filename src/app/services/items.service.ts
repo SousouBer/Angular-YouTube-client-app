@@ -56,11 +56,11 @@ export class ItemsService {
         );
     }
 
-    sortByLikesAscending(data: SearchItem[]){
-      return data.sort((a: SearchItem, b: SearchItem) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount))
+    sortByLikesAscending(data: SearchItem[]) {
+        return data.sort((a: SearchItem, b: SearchItem) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount));
     }
 
-    sortByLikesDescending(data: SearchItem[]){
-      return data.sort((a: SearchItem, b: SearchItem) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount))
+    sortByLikesDescending(data: SearchItem[]) {
+        return data.sort((a: SearchItem, b: SearchItem) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount));
     }
 }

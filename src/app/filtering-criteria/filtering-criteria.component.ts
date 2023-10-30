@@ -1,32 +1,32 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { ItemsService } from '../services/items.service';
+import { ItemsService } from "../services/items.service";
 
 @Component({
-  selector: 'app-filtering-criteria',
-  templateUrl: './filtering-criteria.component.html',
-  styleUrls: ['./filtering-criteria.component.scss'],
+    selector: "app-filtering-criteria",
+    templateUrl: "./filtering-criteria.component.html",
+    styleUrls: ["./filtering-criteria.component.scss"],
 })
 export class FilteringCriteriaComponent {
-  filterByWords = '';
-  isAscending = false;
-  likesIsAscending = false;
+    filterByWords = "";
+    isAscending = false;
+    likesIsAscending = false;
 
-  constructor(private itemsService: ItemsService) {}
+    constructor(private itemsService: ItemsService) {}
 
-  updateValue() {
-    this.itemsService.updateValue(this.filterByWords);
-  }
+    updateValue() {
+        this.itemsService.updateValue(this.filterByWords);
+    }
 
-  filterByDate() {
-    this.isAscending = !this.isAscending;
+    filterByDate() {
+        this.isAscending = !this.isAscending;
 
-    this.itemsService.viewsIsAscending.next(this.isAscending);
-  }
+        this.itemsService.viewsIsAscending.next(this.isAscending);
+    }
 
-  filterByViews() {
-    this.likesIsAscending = !this.likesIsAscending;
+    filterByViews() {
+        this.likesIsAscending = !this.likesIsAscending;
 
-    this.itemsService.likesIsAscending.next(this.likesIsAscending);
-  }
+        this.itemsService.likesIsAscending.next(this.likesIsAscending);
+    }
 }
