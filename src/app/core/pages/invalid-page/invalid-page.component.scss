@@ -1,0 +1,25 @@
+.invalid-page {
+height: 70vh;
+}
+
+.invalid-page, .invalid-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invalid-page-container {
+  gap: 1rem;
+}
+
+.invalid-logo-wrapper img {
+  width: 100%;
+}
+
+.invalid-logo-wrapper {
+  width: 8rem;
+}
+
+.invalid-page-message {
+  font-size: 2rem;
+}
