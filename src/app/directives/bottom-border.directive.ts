@@ -2,11 +2,18 @@ import {
     Directive, ElementRef, Input, OnInit, Renderer2
 } from "@angular/core";
 
+enum Colors {
+    red = "#ff0000",
+    yellow = "#FFFF00",
+    blue = "#0000FF",
+    green = "#008000",
+}
+
 @Directive({
     selector: "[appSetBottomBorder]",
 })
 export class BottomBorderDirective implements OnInit {
-    @Input() appSetBottomBorder!: string;
+    @Input() appSetBottomBorder = "";
 
     currentDate: Date = new Date();
     searchElementDate!: Date;
@@ -40,13 +47,13 @@ export class BottomBorderDirective implements OnInit {
         );
 
         if (remainingDays > 180) {
-            this.color = "#ff0000";
+            this.color = Colors.red;
         } else if (remainingDays < 30 && remainingDays < 180) {
-            this.color = "FFFF00";
+            this.color = Colors.yellow;
         } else if (remainingDays < 7 && remainingDays < 30) {
-            this.color = "#008000";
+            this.color = Colors.blue;
         } else if (remainingDays < 7) {
-            this.color = "#0000FF";
+            this.color = Colors.green;
         }
     }
 }

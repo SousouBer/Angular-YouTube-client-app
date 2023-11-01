@@ -2,17 +2,17 @@ export interface SearchItem {
     kind: string;
     etag: string;
     id: string;
-    snippet: Snippet,
-    channelTitle: string,
-    tags: string[],
-    categoryId: number,
-    liveBroadcastContent: string,
+    snippet: Snippet;
+    channelTitle: string;
+    tags: string[];
+    categoryId: number;
+    liveBroadcastContent: string;
     localized: {
-        title: string,
-        description: string,
-    }
-    defaultAudioLanguage: string,
-    statistics: Statistics,
+        title: string;
+        description: string;
+    };
+    defaultAudioLanguage: string;
+    statistics: Statistics;
 }
 
 interface Snippet {
@@ -36,9 +36,9 @@ interface Thumbnail {
 }
 
 interface Statistics {
-    viewCount: string,
-    likeCount: string,
-    dislikeCount: string,
-    favoriteCount: string,
-    commentCount: string,
+    viewCount: string;
+    likeCount: string;
+    dislikeCount: string;
+    favoriteCount: string;
+    commentCount: string;
 }

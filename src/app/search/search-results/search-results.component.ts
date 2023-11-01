@@ -1,5 +1,7 @@
-import { HttpClient } from "@angular/common/http";
-import { Component, OnInit, Output } from "@angular/core";
+import {
+    Component, OnDestroy, OnInit, Output
+} from "@angular/core";
+import { Subscription } from "rxjs";
 import { ItemsService } from "src/app/services/items.service";
 
 import { SearchItem } from "../search-item.model";
@@ -10,27 +12,30 @@ import { ResponseItem } from "../search-response.model";
     templateUrl: "./search-results.component.html",
     styleUrls: ["./search-results.component.scss"],
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent implements OnInit, OnDestroy {
     MockResponse!: ResponseItem;
-    @Output() SearchItems!: SearchItem[];
+    @Output() SearchItems: SearchItem[] = [];
 
+    data!: Subscription;
+    words!: Subscription;
+    viewAscending!: Subscription;
+    likesIsAscending!: Subscription;
     filter = "";
 
     constructor(
-        private http: HttpClient,
         private filterWords: ItemsService
     ) {}
 
     ngOnInit(): void {
-        this.filterWords.data.subscribe((data) => {
+        this.data = this.filterWords.data.subscribe((data) => {
             this.SearchItems = data;
         });
 
-        this.filterWords.getWords().subscribe((words) => {
+        this.words = this.filterWords.getWords().subscribe((words) => {
             this.filter = words;
         });
 
-        this.filterWords.viewsIsAscending.subscribe((value) => {
+        this.viewAscending = this.filterWords.viewsIsAscending.subscribe((value) => {
             if (value) {
                 // Pass a copy of the array in order to trigger the change detection and
                 //  have the UI updated.
@@ -42,7 +47,7 @@ export class SearchResultsComponent implements OnInit {
             }
         });
 
-        this.filterWords.likesIsAscending.subscribe((value) => {
+        this.likesIsAscending = this.filterWords.likesIsAscending.subscribe((value) => {
             if (value) {
                 const res = this.filterWords.sortByLikesAscending(
                     this.SearchItems.slice()
@@ -55,5 +60,12 @@ export class SearchResultsComponent implements OnInit {
                 this.filterWords.updateData(res);
             }
         });
+    }
+
+    ngOnDestroy(): void {
+        this.data.unsubscribe();
+        this.words.unsubscribe();
+        this.viewAscending.unsubscribe();
+        this.likesIsAscending.unsubscribe();
     }
 }

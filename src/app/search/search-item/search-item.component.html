@@ -4,21 +4,21 @@
   </div>
   <div class="card-info">
     <div class="views-container">
-      <img src="../../../assets/logos/viewed.png" alt="Views" />
+      <img src="/assets/logos/viewed.png" alt="Views" />
       <span class="views">{{ searchItem.statistics.viewCount }}</span>
     </div>
     <div class="likes-container">
-      <img src="../../../assets/logos/liked.png" alt="Likes" />
+      <img src="/assets/logos/liked.png" alt="Likes" />
       <span class="likes">{{ searchItem.statistics.likeCount }}</span>
     </div>
     <div class="dislikes-container">
-      <img src="../../../assets/logos/dislike.png" alt="disikes" />
+      <img src="/assets/logos/dislike.png" alt="Disikes" />
       <span class="dislikes">{{
         searchItem.statistics.dislikeCount
       }}</span>
     </div>
     <div class="comments-container">
-      <img src="../../../assets/logos/comments.png" alt="comments" />
+      <img src="/assets/logos/comments.png" alt="Comments" />
       <span class="comments">{{
         searchItem.statistics.commentCount
       }}</span>
@@ -27,6 +27,5 @@
   <div class="card-title-wrapper">
     <h3 class="card-title">{{ searchItem.snippet.title }}</h3>
   </div>
-  <!-- <button class="card-btn-more" type="button">more...</button> -->
   <app-custom-button class="card-btn">more...</app-custom-button>
 </div>
