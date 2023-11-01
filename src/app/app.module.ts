@@ -7,6 +7,7 @@ import { CustomButtonComponent } from './custom-button/custom-button.component';
 
 import { CoreModule } from './core/core.module';
 import { YoutubeModule } from './youtube/youtube.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { YoutubeModule } from './youtube/youtube.module';
     BrowserModule,
     HttpClientModule,
     CoreModule,
-    YoutubeModule
+    YoutubeModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
