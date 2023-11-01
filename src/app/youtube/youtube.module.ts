@@ -18,7 +18,7 @@ import { SearchItemDetailsComponent } from './components/search-item-details/sea
     FilterPipe,
     MainPageComponent,
     DetailedInformationPageComponent,
-    SearchItemDetailsComponent,
+    SearchItemDetailsComponent
   ],
   imports: [CommonModule, CustomButtonComponent],
   exports: [
@@ -27,6 +27,7 @@ import { SearchItemDetailsComponent } from './components/search-item-details/sea
     BottomBorderDirective,
     FilterPipe,
     MainPageComponent,
+    DetailedInformationPageComponent
   ],
 })
 export class YoutubeModule {}
