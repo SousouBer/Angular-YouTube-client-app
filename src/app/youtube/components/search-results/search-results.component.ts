@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ItemsService } from 'src/app/core/services/items.service';
 
-import { SearchItem } from '../../../models/search-item.model';
-import { ResponseItem } from '../../../models/search-response.model';
+import { SearchItem } from '../../models/search-item.model';
+import { ResponseItem } from '../../models/search-response.model';
 
 @Component({
   selector: 'app-search-results',
