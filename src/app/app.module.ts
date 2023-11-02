@@ -8,6 +8,18 @@ import { CustomButtonComponent } from './custom-button/custom-button.component';
 import { CoreModule } from './core/core.module';
 import { YoutubeModule } from './youtube/youtube.module';
 import { AuthModule } from './auth/auth.module';
+import { Routes, RouterModule } from '@angular/router';
+import { InvalidPageComponent } from './core/pages/invalid-page/invalid-page.component';
+import { LoginComponent } from './auth/components/login/login.component';
+import { DetailedInformationPageComponent } from './youtube/pages/detailed-information-page/detailed-information-page.component';
+import { MainPageComponent } from './youtube/pages/main-page/main-page.component';
+import { AuthguardService } from './youtube/services/authguard.service';
+
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'main',loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule)},
+  { path: '**', component: InvalidPageComponent}
+]
 
 @NgModule({
   declarations: [
@@ -18,8 +30,10 @@ import { AuthModule } from './auth/auth.module';
     HttpClientModule,
     CoreModule,
     YoutubeModule,
-    AuthModule
+    AuthModule,
+    RouterModule.forRoot(routes)
   ],
+  // exports:
   providers: [],
   bootstrap: [AppComponent],
 })

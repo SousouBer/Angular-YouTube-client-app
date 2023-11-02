@@ -1,16 +1,35 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Router } from "@angular/router";
+import { AuthService } from "src/app/youtube/services/auth.service";
 
 @Component({
     selector: "app-header",
     templateUrl: "./header.component.html",
     styleUrls: ["./header.component.scss"]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
     resultBlockShown = false;
     showHideSettings = false;
 
+    isLoggedIn = true;
+
     @Output() showResults = new EventEmitter<boolean>();
     @Output() shareToggleSettings = new EventEmitter<boolean>();
+
+    constructor(private authService: AuthService, private router: Router){}
+
+    ngOnInit(){
+
+    }
+
+    onLogOut(){
+      // localStorage.removeItem('booleanValue');
+      // this.authService.getTheValue();
+      this.authService.logout();
+      console.log(this.authService.isAuthenticated())
+      // console.log(this.authService.isAuthenticated())
+      this.router.navigate(['/login'])
+    }
 
     showResultsBlock() {
         this.resultBlockShown = true;

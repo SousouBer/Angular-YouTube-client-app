@@ -9,6 +9,17 @@ import { CustomButtonComponent } from '../custom-button/custom-button.component'
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { DetailedInformationPageComponent } from './pages/detailed-information-page/detailed-information-page.component';
 import { SearchItemDetailsComponent } from './components/search-item-details/search-item-details.component';
+import { Routes, RouterModule } from '@angular/router';
+import { AuthguardService } from './services/authguard.service';
+
+const routes: Routes = [
+  { path: '', component: MainPageComponent, canActivate: [AuthguardService] },
+  {
+    path: 'detailed-information',
+    component: DetailedInformationPageComponent,
+    canActivate: [AuthguardService]
+  },
+];
 
 @NgModule({
   declarations: [
@@ -18,16 +29,17 @@ import { SearchItemDetailsComponent } from './components/search-item-details/sea
     FilterPipe,
     MainPageComponent,
     DetailedInformationPageComponent,
-    SearchItemDetailsComponent
+    SearchItemDetailsComponent,
   ],
-  imports: [CommonModule, CustomButtonComponent],
+  imports: [CommonModule, CustomButtonComponent, RouterModule.forChild(routes)],
   exports: [
     SearchItemComponent,
     SearchResultsComponent,
     BottomBorderDirective,
     FilterPipe,
     MainPageComponent,
-    DetailedInformationPageComponent
+    DetailedInformationPageComponent,
+    RouterModule,
   ],
 })
 export class YoutubeModule {}

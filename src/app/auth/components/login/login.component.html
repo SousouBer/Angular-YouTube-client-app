@@ -4,14 +4,14 @@
       <form class="login-form">
         <div class="username-field">
           <label for="username" class="username">login</label>
-          <input type="text" id="username" class="username-input">
+          <input type="text" id="username" class="username-input" required>
         </div>
         <div class="password-field">
           <label for="password" class="password">password</label>
-          <input type="password" id="password" class="password-input">
+          <input type="password" id="password" class="password-input" required>
         </div>
         <div class="login-button-wrapper">
-          <button class="login-button" type="submit">Login</button>
+          <button class="login-button" (click)="onLogin()">Login</button>
         </div>
       </form>
   </div>
