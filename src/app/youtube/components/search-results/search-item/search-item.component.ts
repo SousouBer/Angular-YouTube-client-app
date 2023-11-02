@@ -12,6 +12,10 @@ export class SearchItemComponent implements OnInit {
   videoThumbnail = '';
 
   ngOnInit(): void {
-    this.videoThumbnail = this.searchItem.snippet.thumbnails.default.url;
+    this.videoThumbnail = this.searchItem.snippet.thumbnails.maxres.url;
   }
+
+  onItemId(){
+    console.log(this.searchItem.id);
+  } 
 }

@@ -15,7 +15,7 @@ import { AuthguardService } from './services/authguard.service';
 const routes: Routes = [
   { path: '', component: MainPageComponent, canActivate: [AuthguardService] },
   {
-    path: 'detailed-information',
+    path: 'detailed-information/:id',
     component: DetailedInformationPageComponent,
     canActivate: [AuthguardService]
   },

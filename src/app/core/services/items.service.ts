@@ -71,4 +71,8 @@ export class ItemsService {
         Number(b.statistics.viewCount) - Number(a.statistics.viewCount)
     );
   }
+
+  findItem(arr: SearchItem[], id: string){
+    return arr.find(item => item.id === id);
+  }
 }

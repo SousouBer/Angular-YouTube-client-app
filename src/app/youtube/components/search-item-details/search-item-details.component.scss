@@ -6,6 +6,10 @@
 }
 
 .back-button {
+  background-color: #2F80ED;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 2rem;
   width: 3.2rem;
   height: 3.2rem;
   position: absolute;
@@ -13,8 +17,12 @@
   left: 0;
   transform: translate(-100%, 0);
   cursor: pointer;
-  background-color: transparent;
   border: none;
+  transition: all 0.5s ease;
+}
+
+.back-button:hover {
+  background-color: #5EA2FF;
 }
 
 .back-button img {

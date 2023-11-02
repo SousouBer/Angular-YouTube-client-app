@@ -1,47 +1,45 @@
 <section class="item-details-page">
   <div class="item-details-container">
-    <button class="back-button"><</button>
-    <div class="image-wrapper">
-      <img [src]="'/assets/logos/video.png'" alt="item image" />
+    <button class="back-button" routerLink="/main"><</button>
+    <div
+      [ngStyle]="{ width: itemObject.snippet.thumbnails.standard.width }"
+      class="image-wrapper"
+    >
+      <img [src]="itemObject.snippet.thumbnails.maxres.url" alt="item image" />
     </div>
     <div class="item-details">
       <div class="title-date">
-        <h3 class="title">Kuji Podcast #20</h3>
-        <span class="date">Thursday, December 20, 2019</span>
+        <h3 class="title">{{ itemObject.snippet.title }}</h3>
+        <span class="date">{{ date }}</span>
       </div>
       <div class="description">
         <h5 class="description-title">Description</h5>
-        <p class="description-text">
-          This Is KuJi Podcast. In this issue, Timur karginov, Andrey Konyaev
-          and Nurlan Saburov discuss the end of 2018: Khabib's fight with
-          McGregor, Kokorin and Mamayev, Urgant's show on channel One, the
-          economic crisis and gifts for loved ones.
-        </p>
+        <p class="description-text">{{ itemObject.snippet.description }}</p>
       </div>
       <div class="statistics">
         <div class="stat-container">
           <div class="icon-containe">
             <img [src]="'/assets/logos/viewed.png'" alt="Views" />
           </div>
-          <span>100</span>
+          <span>{{ itemObject.statistics.viewCount }}</span>
         </div>
         <div class="stat-container">
           <div class="icon-containe">
             <img [src]="'/assets/logos/liked.png'" alt="Likes" />
           </div>
-          <span>100</span>
+          <span>{{ itemObject.statistics.likeCount }}</span>
         </div>
         <div class="stat-container">
           <div class="icon-containe">
             <img [src]="'/assets/logos/dislike.png'" alt="Dislikes" />
           </div>
-          <span>100</span>
+          <span>{{ itemObject.statistics.dislikeCount }}</span>
         </div>
         <div class="stat-container">
           <div class="icon-containe">
             <img [src]="'/assets/logos/comments.png'" alt="Comments" />
           </div>
-          <span>100</span>
+          <span>{{ itemObject.statistics.commentCount }}</span>
         </div>
       </div>
     </div>

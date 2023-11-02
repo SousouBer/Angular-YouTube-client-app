@@ -13,8 +13,8 @@
       "snippet": {
         "publishedAt": "2019-05-30T12:42:19.000Z",
         "channelId": "UCg8ss4xW9jASrqWGP30jXiw",
-        "title": "Angular 8 - Быстрый курс за 60 минут",
-        "description": "Полный курс по Angular 8+:\nhttps://clc.to/angular\n\nTelegram: https://teleg.one/js_by_vladilen \nInstagram: https://www.instagram.com/vladilen.minin \nVK: https://vk.com/vladilen.minin \nГруппа VK: https://vk.com/js_by_vladilen \n\nReact Native: мобильная разработка на JavaScript:\nhttps://clc.to/rnative\n\nПоддержать выпуск новых видео:\nЯД: https://money.yandex.ru/to/410013757655670\nPayPal: https://www.paypal.me/vladilenm \n\n30 мая 2019 года бы релиз Angular 8 и я решил записать  по нему быстрый курс. В видео вы узнаете, как Angular работает, как его установить.\nВ результате урока я покажу создание Todo приложения с разными подходами. Разберем работу с сервером, сервисами, пайпами, коммуникацией между компонентами и немного RxJS\n\nИсходный код:\nhttps://github.com/vladilenm/angular8-cc\n\nAngular 8 - Быстрый курс за 60 минут",
+        "title": "Angular 8 - Quick course in 60 minutes",
+        "description": "Full course on Angular 8+:\nhttps://clc.to/angular\n\nTelegram: https://teleg.one/js_by_vladilen \nInstagram: https://www.instagram.com/vladilen.minin \nVK: https://vk.com/vladilen.minin \nVK Group: https://vk.com/js_by_vladilen \n\nReact Native: mobile development in JavaScript:\nhttps://clc.to/rnative\n\nSupport the release new videos:\nYAD: https://money.yandex.ru/to/410013757655670\nPayPal: https://www.paypal.me/vladilenm\n\nMay 30, 2019 would be the release of Angular 8 and I decided to record on it fast course. In the video you will learn how Angular works and how to install it.\nAs a result of the lesson, I will show you how to create a Todo application with different approaches. Let's look at working with the server, services, pipes, communication between components and a little RxJS\n\nSource code:\nhttps://github.com/vladilenm/angular8-cc\n\nAngular 8 - Quick course in 60 minutes",
         "thumbnails": {
           "default": {
             "url": "https://i.ytimg.com/vi/YN8zNnV0sK8/default.jpg",
@@ -73,8 +73,8 @@
         "categoryId": "27",
         "liveBroadcastContent": "none",
         "localized": {
-          "title": "Angular 8 - Быстрый курс за 60 минут",
-          "description": "Полный курс по Angular 8+:\nhttps://clc.to/angular\n\nTelegram: https://teleg.one/js_by_vladilen \nInstagram: https://www.instagram.com/vladilen.minin \nVK: https://vk.com/vladilen.minin \nГруппа VK: https://vk.com/js_by_vladilen \n\nReact Native: мобильная разработка на JavaScript:\nhttps://clc.to/rnative\n\nПоддержать выпуск новых видео:\nЯД: https://money.yandex.ru/to/410013757655670\nPayPal: https://www.paypal.me/vladilenm \n\n30 мая 2019 года бы релиз Angular 8 и я решил записать  по нему быстрый курс. В видео вы узнаете, как Angular работает, как его установить.\nВ результате урока я покажу создание Todo приложения с разными подходами. Разберем работу с сервером, сервисами, пайпами, коммуникацией между компонентами и немного RxJS\n\nИсходный код:\nhttps://github.com/vladilenm/angular8-cc\n\nAngular 8 - Быстрый курс за 60 минут"
+          "title": "Angular 8 - Quick course in 60 minutes",
+          "description": "Full course on Angular 8+:\nhttps://clc.to/angular\n\nTelegram: https://teleg.one/js_by_vladilen \nInstagram: https://www.instagram.com/vladilen.minin \nVK: https://vk.com/vladilen.minin \nVK Group: https://vk.com/js_by_vladilen \n\nReact Native: mobile development in JavaScript:\nhttps://clc.to/rnative\n\nSupport the release new videos:\nYAD: https://money.yandex.ru/to/410013757655670\nPayPal: https://www.paypal.me/vladilenm\n\nMay 30, 2019 would be the release of Angular 8 and I decided to record on it fast course. In the video you will learn how Angular works and how to install it.\nAs a result of the lesson, I will show you how to create a Todo application with different approaches. Let's look at working with the server, services, pipes, communication between components and a little RxJS\n\nSource code:\nhttps://github.com/vladilenm/angular8-cc\n\nAngular 8 - Quick course in 60 minutes"
         },
         "defaultAudioLanguage": "en-US"
       },
@@ -232,8 +232,8 @@
       "snippet": {
         "publishedAt": "2019-09-04T15:00:12.000Z",
         "channelId": "UCg8ss4xW9jASrqWGP30jXiw",
-        "title": "Angular 8 Основы. Полный Курс для начинающих",
-        "description": "Полный курс по Angular 8+:\nhttps://clc.to/angular\n\nДобавляйте меня в ВК: https://vk.com/vladilen.minin\nTelegram: https://teleg.one/js_by_vladilen\nInstagram: https://www.instagram.com/vladilen.minin\nГруппа ВК: https://vk.com/js_by_vladilen\n\nПоддержать выпуск новых видео:\nЯД: https://money.yandex.ru/to/410013757655670\nPayPal: https://www.paypal.me/vladilenm \n\nУрок по Angular. В этом курсе вы познакомитесь со всеми основными элементами, которые есть в Angular с полного нуля\n\nAngular 8 Основы. Полный Курс. Урок для Новичков",
+        "title": "Angular 8 Basics. Complete Course for Beginners",
+        "description": "Full course on Angular 8+:\nhttps://clc.to/angular\n\nAdd me on VK: https://vk.com/vladilen.minin\nTelegram: https://teleg.one/js_by_vladilen\nInstagram : https://www.instagram.com/vladilen.minin\nVK group: https://vk.com/js_by_vladilen\n\nSupport the release of new videos:\nYaD: https://money.yandex.ru/to/ 410013757655670\nPayPal: https://www.paypal.me/vladilenm \n\nAngular lesson. In this course you will learn all the basic elements that are in Angular from scratch\n\nAngular 8 Fundamentals. Full Course. Lesson for Beginners",
         "thumbnails": {
           "default": {
             "url": "https://i.ytimg.com/vi/Rf54BH35yrY/default.jpg",
@@ -261,7 +261,7 @@
             "height": 720
           }
         },
-        "channelTitle": "Владилен Минин",
+        "channelTitle": "Vladilen Minin",
         "tags": [
           "angular",
           "angularjs",
@@ -291,8 +291,8 @@
         "categoryId": "27",
         "liveBroadcastContent": "none",
         "localized": {
-          "title": "Angular 8 Основы. Полный Курс для начинающих",
-          "description": "Полный курс по Angular 8+:\nhttps://clc.to/angular\n\nДобавляйте меня в ВК: https://vk.com/vladilen.minin\nTelegram: https://teleg.one/js_by_vladilen\nInstagram: https://www.instagram.com/vladilen.minin\nГруппа ВК: https://vk.com/js_by_vladilen\n\nПоддержать выпуск новых видео:\nЯД: https://money.yandex.ru/to/410013757655670\nPayPal: https://www.paypal.me/vladilenm \n\nУрок по Angular. В этом курсе вы познакомитесь со всеми основными элементами, которые есть в Angular с полного нуля\n\nAngular 8 Основы. Полный Курс. Урок для Новичков"
+          "title": "Angular 8 Basics. Complete Course for Beginners",
+          "description": "Full course on Angular 8+:\nhttps://clc.to/angular\n\nAdd me on VK: https://vk.com/vladilen.minin\nTelegram: https://teleg.one/js_by_vladilen\nInstagram : https://www.instagram.com/vladilen.minin\nVK group: https://vk.com/js_by_vladilen\n\nSupport the release of new videos:\nYaD: https://money.yandex.ru/to/ 410013757655670\nPayPal: https://www.paypal.me/vladilenm \n\nAngular lesson. In this course you will learn all the basic elements that are in Angular from scratch\n\nAngular 8 Fundamentals. Full Course. Lesson for Beginners"
         },
         "defaultAudioLanguage": "en-US"
       },
