@@ -1,9 +1,9 @@
 <header class="header">
   <div class="header-settings">
     <div class="header-search">
-      <a href="#" class="youtube-logo">
+      <div class="youtube-logo">
         <img src="/assets/logos/logo.png" alt="Youtube logo">
-      </a>
+      </div>
       <div class="search-input">
         <form class="search-form">
           <input class="search-input" type="text" />
@@ -15,9 +15,9 @@
       </a>
     </div>
     <div class="login-info">
-      <span>Your name</span>
-      <button (click)="onLogOut()">LOG OUT</button>
-      <a href="#" class="login-a">
+      <span class="username">Your name</span>
+      <button class="logout-btn" (click)="onLogOut()">Log out</button>
+      <a class="login-a">
         <img src="/assets/logos/login.png" alt="Login">
       </a>
     </div>

@@ -23,11 +23,7 @@ export class HeaderComponent implements OnInit {
     }
 
     onLogOut(){
-      // localStorage.removeItem('booleanValue');
-      // this.authService.getTheValue();
       this.authService.logout();
-      console.log(this.authService.isAuthenticated())
-      // console.log(this.authService.isAuthenticated())
       this.router.navigate(['/login'])
     }
 
