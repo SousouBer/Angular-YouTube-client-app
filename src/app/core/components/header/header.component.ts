@@ -13,17 +13,17 @@ export class HeaderComponent {
 
     @Output() shareToggleSettings = new EventEmitter<boolean>();
 
-    constructor(private authService: AuthService, private router: Router){}
+    constructor(private authService: AuthService, private router: Router) {}
 
-    onLogOut(){
-      this.authService.logout();
-      this.router.navigate(['/login'])
+    onLogOut() {
+        this.authService.logout();
+        this.router.navigate(["/login"]);
     }
 
     toggleSettings() {
-      if(this.authService.isAuthenticated()){
-        this.showHideSettings = !this.showHideSettings;
-        this.shareToggleSettings.emit(this.showHideSettings);
-      }
+        if (this.authService.isAuthenticated()) {
+            this.showHideSettings = !this.showHideSettings;
+            this.shareToggleSettings.emit(this.showHideSettings);
+        }
     }
 }

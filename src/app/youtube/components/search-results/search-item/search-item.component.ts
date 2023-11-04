@@ -1,17 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from "@angular/core";
 
-import { SearchItem } from '../../../models/search-item.model';
+import { SearchItem } from "../../../models/search-item.model";
 
 @Component({
-  selector: 'app-search-item',
-  templateUrl: './search-item.component.html',
-  styleUrls: ['./search-item.component.scss'],
+    selector: "app-search-item",
+    templateUrl: "./search-item.component.html",
+    styleUrls: ["./search-item.component.scss"],
 })
 export class SearchItemComponent implements OnInit {
-  @Input() searchItem!: SearchItem;
-  videoThumbnail = '';
+    @Input() searchItem!: SearchItem;
+    videoThumbnail = "";
 
-  ngOnInit(): void {
-    this.videoThumbnail = this.searchItem.snippet.thumbnails.maxres.url;
-  }
+    ngOnInit(): void {
+        this.videoThumbnail = this.searchItem.snippet.thumbnails.maxres.url;
+    }
 }
