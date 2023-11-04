@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component, EventEmitter, Output } from "@angular/core";
+import { ActivatedRoute, Route, Router } from "@angular/router";
 import { AuthService } from "src/app/youtube/services/auth.service";
 
 @Component({
@@ -7,33 +7,37 @@ import { AuthService } from "src/app/youtube/services/auth.service";
     templateUrl: "./header.component.html",
     styleUrls: ["./header.component.scss"]
 })
-export class HeaderComponent implements OnInit {
-    resultBlockShown = false;
+export class HeaderComponent {
+    username = this.authService.username$;
+
+    // resultBlockShown = false;
     showHideSettings = false;
 
-    isLoggedIn = true;
+    // isLoggedIn = true;
 
-    @Output() showResults = new EventEmitter<boolean>();
+    // @Output() showResults = new EventEmitter<boolean>();
     @Output() shareToggleSettings = new EventEmitter<boolean>();
 
-    constructor(private authService: AuthService, private router: Router){}
-
-    ngOnInit(){
-
-    }
+    constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute){}
 
     onLogOut(){
+      // this.isLoggedIn = false;
+      
+
       this.authService.logout();
       this.router.navigate(['/login'])
     }
 
-    showResultsBlock() {
-        this.resultBlockShown = true;
-        this.showResults.emit(this.resultBlockShown);
-    }
+    // showResultsBlock() {
+    //     this.resultBlockShown = true;
+    //     this.showResults.emit(this.resultBlockShown);
+    // }
 
     toggleSettings() {
+      if(this.authService.isAuthenticated()){
         this.showHideSettings = !this.showHideSettings;
         this.shareToggleSettings.emit(this.showHideSettings);
+      }
+      console.log(this.route.snapshot);
     }
 }

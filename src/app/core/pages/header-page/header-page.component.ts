@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-page.component.scss']
 })
 export class HeaderPageComponent implements OnInit {
-  resultBlockIsShown = false;
+  // resultBlockIsShown = false;
     showOrHideSettings = false;
 
-    showResults(value: boolean) {
-        this.resultBlockIsShown = value;
-    }
+    // showResults(value: boolean) {
+    //     this.resultBlockIsShown = value;
+    // }
 
     toggleSettings(value: boolean) {
         this.showOrHideSettings = value;

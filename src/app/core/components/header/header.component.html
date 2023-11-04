@@ -7,7 +7,7 @@
       <div class="search-input">
         <form class="search-form">
           <input class="search-input" type="text" />
-          <button class="search-btn" type="button" (click)="showResultsBlock()">Search</button>
+          <button class="search-btn" type="button" >Search</button>
         </form>
       </div>
       <a class="settings-container" (click)="toggleSettings()">
@@ -15,7 +15,7 @@
       </a>
     </div>
     <div class="login-info">
-      <span class="username">Your name</span>
+      <span class="username">{{ username | async }}</span>
       <button class="logout-btn" (click)="onLogOut()">Log out</button>
       <a class="login-a">
         <img src="/assets/logos/login.png" alt="Login">
