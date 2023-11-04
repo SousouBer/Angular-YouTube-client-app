@@ -13,7 +13,7 @@ export class SearchItemDetailsComponent implements OnInit, OnDestroy {
   id: string = '';
   itemObject!: SearchItem;
   recieveSearchItems!: Subscription;
-  date = '';
+  // date = '';
 
   constructor(private itemsService: ItemsService,  private route: ActivatedRoute) { }
 
@@ -27,7 +27,7 @@ export class SearchItemDetailsComponent implements OnInit, OnDestroy {
       this.itemObject = item as SearchItem;
     })
 
-    this.date = new Date(this.itemObject.snippet.publishedAt).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
+    // this.date = new Date(this.itemObject.snippet.publishedAt).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
   }
 
   ngOnDestroy(): void {

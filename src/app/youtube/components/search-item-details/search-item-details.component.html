@@ -7,10 +7,10 @@
     >
       <img [src]="itemObject.snippet.thumbnails.maxres.url" alt="item image" />
     </div>
-    <div class="item-details">
+    <div [appSetBottomBorder]="itemObject.snippet.publishedAt" class="item-details">
       <div class="title-date">
         <h3 class="title">{{ itemObject.snippet.title }}</h3>
-        <span class="date">{{ date }}</span>
+        <span class="date">{{ itemObject.snippet.publishedAt | date: 'EEEE, MMMM d, yyyy' }}</span>
       </div>
       <div class="description">
         <h5 class="description-title">Description</h5>

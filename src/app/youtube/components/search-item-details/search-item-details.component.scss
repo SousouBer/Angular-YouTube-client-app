@@ -36,6 +36,7 @@
   justify-content: center;
   box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.2);
   position: relative;
+  border-radius: 3px;
 }
 
 .image-wrapper {
@@ -52,8 +53,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  box-sizing: border-box;
-  border-bottom: 4px solid red;
+  border-bottom-right-radius: 5px;
 }
 
 .title {
