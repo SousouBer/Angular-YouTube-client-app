@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
       this.authService.login(form.value.username);
       this.authService.saveUsernameValue(form.value.username);
       this.router.navigate(['/main']);
-      console.log(this.authService.usernameValue)
     }
   }
 }

@@ -4,6 +4,12 @@
   border: none;
   padding: 0.8rem 4rem;
   border-radius: 3px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   cursor: pointer;
+  width: 12rem;
+  transition: all 0.3s ease;
+}
+
+.card-btn-more:hover {
+  background-color: #5EA2FF;
 }

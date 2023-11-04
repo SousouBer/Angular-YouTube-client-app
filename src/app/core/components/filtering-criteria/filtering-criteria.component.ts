@@ -26,7 +26,6 @@ export class FilteringCriteriaComponent {
 
   filterByViews() {
     this.likesIsAscending = !this.likesIsAscending;
-
     this.itemsService.likesIsAscending.next(this.likesIsAscending);
   }
 }

@@ -8,7 +8,6 @@ export class AuthService {
   isLoggedIn = false;
   usernameValue = new BehaviorSubject('');
   username$ = this.usernameValue.asObservable();
-  // isLoggedIn = new BehaviorSubject(false);
 
   constructor() { }
 
@@ -21,14 +20,11 @@ export class AuthService {
   }
 
   login(username: string){
-    // localStorage.setItem('booleanValue', 'true');
     localStorage.setItem('username', username);
     this.isLoggedIn = true;
-    // this.isLoggedIn.next(true);
   }
 
   logout(){
-    // localStorage.removeItem('booleanValue')
     localStorage.removeItem('username')
     this.saveUsernameValue('');
     this.isLoggedIn = false;

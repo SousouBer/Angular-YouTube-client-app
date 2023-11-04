@@ -3,7 +3,7 @@
   background-color: #e5e5e5;
   max-width: 26.3rem;
   padding-bottom: 1rem;
-  height: 33rem;
+  min-height: 35rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -46,6 +46,7 @@ img {
 
 .card-title {
   font-size: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .card-btn {

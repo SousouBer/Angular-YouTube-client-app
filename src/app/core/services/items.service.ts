@@ -16,7 +16,6 @@ export class ItemsService {
 
   data = this.itemsData.asObservable();
 
-  // Is this is a correct approach to make an HTTP request in the constructor of a service?
   constructor(private http: HttpClient) {
     this.http
       .get<ResponseItem>('../assets/mock.response.json')
@@ -70,9 +69,5 @@ export class ItemsService {
       (a: SearchItem, b: SearchItem) =>
         Number(b.statistics.viewCount) - Number(a.statistics.viewCount)
     );
-  }
-
-  findItem(arr: SearchItem[], id: string){
-    return arr.find(item => item.id === id);
   }
 }

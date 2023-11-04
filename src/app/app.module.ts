@@ -16,8 +16,8 @@ import { MainPageComponent } from './youtube/pages/main-page/main-page.component
 import { AuthguardService } from './youtube/services/authguard.service';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'main',loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule)},
+  { path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+  { path: 'main', loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule)},
   { path: '**', component: InvalidPageComponent}
 ]
 
@@ -33,7 +33,6 @@ const routes: Routes = [
     AuthModule,
     RouterModule.forRoot(routes)
   ],
-  // exports:
   providers: [],
   bootstrap: [AppComponent],
 })

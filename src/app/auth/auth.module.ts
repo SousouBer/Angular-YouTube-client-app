@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
-
-
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,8 +12,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forChild([{ path: '', component: LoginPageComponent }])
   ],
-  exports: [LoginComponent, LoginPageComponent]
+  exports: [LoginComponent, LoginPageComponent, RouterModule]
 })
 export class AuthModule { }
