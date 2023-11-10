@@ -10,6 +10,7 @@ import { InvalidPageComponent } from "./core/pages/invalid-page/invalid-page.com
 import { YoutubeModule } from "./youtube/youtube.module";
 
 const routes: Routes = [
+  { path: '', redirectTo: '/main', pathMatch: 'full' },
     { path: "login", loadChildren: () => import("./auth/auth.module").then((m) => m.AuthModule) },
     { path: "main", loadChildren: () => import("./youtube/youtube.module").then((m) => m.YoutubeModule) },
     { path: "**", component: InvalidPageComponent }
@@ -22,8 +23,6 @@ const routes: Routes = [
     imports: [
         BrowserModule,
         HttpClientModule,
-        YoutubeModule,
-        // AuthModule,
         CoreModule,
         RouterModule.forRoot(routes)
     ],

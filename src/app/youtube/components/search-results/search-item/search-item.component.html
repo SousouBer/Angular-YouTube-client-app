@@ -27,5 +27,7 @@
   <div class="card-title-wrapper">
     <h3 class="card-title">{{ searchItem.snippet.title }}</h3>
   </div>
-  <app-custom-button [routerLink]="['/detailed-information', searchItem.id]" class="card-btn">more...</app-custom-button>
+  <app-custom-button [routerLink]="['detailed-information', searchItem.id]" class="card-btn">more...</app-custom-button>
 </div>
+
+<!-- /:id -->
