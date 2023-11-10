@@ -4,18 +4,16 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 
 import { LoginComponent } from "./components/login/login.component";
-import { LoginPageComponent } from "./pages/login-page/login-page.component";
 
 @NgModule({
     declarations: [
-        LoginPageComponent,
         LoginComponent
     ],
     imports: [
         CommonModule,
         FormsModule,
-        RouterModule.forChild([{ path: "", component: LoginPageComponent }])
+        RouterModule.forChild([{ path: "", component: LoginComponent }])
     ],
-    exports: [LoginComponent, LoginPageComponent, RouterModule]
+    exports: [LoginComponent, RouterModule]
 })
 export class AuthModule { }

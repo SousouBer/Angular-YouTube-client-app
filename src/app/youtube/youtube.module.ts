@@ -7,7 +7,6 @@ import { SearchItemDetailsComponent } from "./components/search-item-details/sea
 import { SearchItemComponent } from "./components/search-results/search-item/search-item.component";
 import { SearchResultsComponent } from "./components/search-results/search-results.component";
 import { BottomBorderDirective } from "./directives/bottom-border.directive";
-import { DetailedInformationPageComponent } from "./pages/detailed-information-page/detailed-information-page.component";
 import { MainPageComponent } from "./pages/main-page/main-page.component";
 import { FilterPipe } from "./pipes/filter.pipe";
 import { AuthguardService } from "./services/authguard.service";
@@ -16,8 +15,8 @@ const routes: Routes = [
     { path: "", component: MainPageComponent, canActivate: [AuthguardService] },
     {
         path: "detailed-information/:id",
-        component: DetailedInformationPageComponent,
-        canActivate: [AuthguardService]
+        component: SearchItemDetailsComponent,
+        canActivate: [AuthguardService],
     },
 ];
 
@@ -28,18 +27,16 @@ const routes: Routes = [
         BottomBorderDirective,
         FilterPipe,
         MainPageComponent,
-        DetailedInformationPageComponent,
         SearchItemDetailsComponent,
     ],
     imports: [CommonModule, CustomButtonComponent, RouterModule.forChild(routes)],
     exports: [
         SearchItemComponent,
-        SearchResultsComponent,
-        BottomBorderDirective,
-        FilterPipe,
-        MainPageComponent,
-        DetailedInformationPageComponent,
-        RouterModule,
+        // SearchResultsComponent,
+        // BottomBorderDirective,
+        // FilterPipe,
+        // MainPageComponent,
+        // RouterModule,
     ],
 })
 export class YoutubeModule {}

@@ -13,6 +13,6 @@ import { InvalidPageComponent } from "./pages/invalid-page/invalid-page.componen
         CommonModule,
         FormsModule
     ],
-    exports: [HeaderComponent, FilteringCriteriaComponent, HeaderPageComponent, InvalidPageComponent]
+    exports: [HeaderPageComponent, InvalidPageComponent]
 })
 export class CoreModule { }

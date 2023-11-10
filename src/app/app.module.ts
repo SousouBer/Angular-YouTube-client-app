@@ -22,9 +22,9 @@ const routes: Routes = [
     imports: [
         BrowserModule,
         HttpClientModule,
-        CoreModule,
         YoutubeModule,
-        AuthModule,
+        // AuthModule,
+        CoreModule,
         RouterModule.forRoot(routes)
     ],
     providers: [],
