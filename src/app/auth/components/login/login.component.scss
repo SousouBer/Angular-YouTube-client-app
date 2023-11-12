@@ -66,3 +66,14 @@
 .login-button:hover {
   background-color: #5EA2FF;
 }
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.warning-message {
+  font-size: 1rem;
+  color: red;
+  font-style: italic;
+}
