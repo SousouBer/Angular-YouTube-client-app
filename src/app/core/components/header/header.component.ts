@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { ItemsService } from '../../services/items.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +15,11 @@ export class HeaderComponent {
 
   @Output() shareToggleSettings = new EventEmitter<boolean>();
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private itemsService: ItemsService, private authService: AuthService, private router: Router) {}
+
+  getInput(e: any){
+    this.itemsService.searchItemText.next(e.target.value);
+  }
 
   onLogOut() {
     this.authService.logout();

@@ -1,7 +1,7 @@
 import {
     Component, OnDestroy, OnInit, Output
 } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Observable, Subscription, debounceTime, switchMap } from "rxjs";
 import { ItemsService } from "src/app/core/services/items.service";
 
 import { SearchItem } from "../../models/search-item.model";
@@ -14,6 +14,7 @@ import { ResponseItem } from "../../models/search-response.model";
 })
 export class SearchResultsComponent implements OnInit, OnDestroy {
     MockResponse!: ResponseItem;
+
     @Output() SearchItems: SearchItem[] = [];
 
     data!: Subscription;
@@ -21,44 +22,52 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     viewAscending!: Subscription;
     likesIsAscending!: Subscription;
     filter = "";
+    sub!: Subscription;
 
-    constructor(private filterWords: ItemsService) {}
+    headerData = this.itemsService.searchItemText;
+
+    constructor(private itemsService: ItemsService) {}
 
     ngOnInit(): void {
-        this.data = this.filterWords.data.subscribe((data) => {
-            this.SearchItems = data;
+        this.data = this.itemsService.data.subscribe((resData) => {
+            this.SearchItems = resData;
         });
 
-        this.words = this.filterWords.getWords().subscribe((words) => {
+        // this.sub = this.headerData.pipe(switchMap(query => this.itemsService.getVideoIds(query)), switchMap(videoIds => this.itemsService.getVideos(videoIds))).subscribe(videoDataArray => this.itemsService.updateData(videoDataArray))
+
+        this.sub = this.headerData.pipe(switchMap(query => this.itemsService.getVideoIds(query)), switchMap(videoIds => this.itemsService.getVideos(videoIds))).subscribe(videoDataArray => console.log(videoDataArray))
+
+
+        this.words = this.itemsService.getWords().subscribe((words) => {
             this.filter = words;
         });
 
-        this.viewAscending = this.filterWords.viewsIsAscending.subscribe(
+        this.viewAscending = this.itemsService.viewsIsAscending.subscribe(
             (value) => {
                 if (value) {
                     // Pass a copy of the array in order to trigger the change detection and
                     //  have the UI updated.
-                    const res = this.filterWords.sortAscending(this.SearchItems.slice());
-                    this.filterWords.updateData(res);
+                    const res = this.itemsService.sortAscending(this.SearchItems.slice());
+                    this.itemsService.updateData(res);
                 } else {
-                    const res = this.filterWords.sortDescending(this.SearchItems.slice());
-                    this.filterWords.updateData(res);
+                    const res = this.itemsService.sortDescending(this.SearchItems.slice());
+                    this.itemsService.updateData(res);
                 }
             }
         );
 
-        this.likesIsAscending = this.filterWords.likesIsAscending.subscribe(
+        this.likesIsAscending = this.itemsService.likesIsAscending.subscribe(
             (value) => {
                 if (value) {
-                    const res = this.filterWords.sortByLikesAscending(
+                    const res = this.itemsService.sortByLikesAscending(
                         this.SearchItems.slice()
                     );
-                    this.filterWords.updateData(res);
+                    this.itemsService.updateData(res);
                 } else {
-                    const res = this.filterWords.sortByLikesDescending(
+                    const res = this.itemsService.sortByLikesDescending(
                         this.SearchItems.slice()
                     );
-                    this.filterWords.updateData(res);
+                    this.itemsService.updateData(res);
                 }
             }
         );
@@ -69,5 +78,6 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
         this.words.unsubscribe();
         this.viewAscending.unsubscribe();
         this.likesIsAscending.unsubscribe();
+        this.sub.unsubscribe();
     }
 }

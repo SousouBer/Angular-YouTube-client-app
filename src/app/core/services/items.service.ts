@@ -1,69 +1,92 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subject, map } from 'rxjs';
 
-import { SearchItem } from "../../youtube/models/search-item.model";
-import { ResponseItem } from "../../youtube/models/search-response.model";
+import { SearchItem } from '../../youtube/models/search-item.model';
+import { ResponseItem } from '../../youtube/models/search-response.model';
 
 @Injectable({
-    providedIn: "root",
+  providedIn: 'root',
 })
 export class ItemsService {
-    filteringWords = new BehaviorSubject<string>("");
-    viewsIsAscending = new BehaviorSubject<boolean>(false);
-    likesIsAscending = new BehaviorSubject<boolean>(false);
-    itemsData = new BehaviorSubject<SearchItem[]>([]);
+  filteringWords = new BehaviorSubject<string>('');
+  viewsIsAscending = new BehaviorSubject<boolean>(false);
+  likesIsAscending = new BehaviorSubject<boolean>(false);
+  itemsData = new BehaviorSubject<SearchItem[]>([]);
 
-    data = this.itemsData.asObservable();
+  data = this.itemsData.asObservable();
 
-    constructor(private http: HttpClient) {
-        this.http
-            .get<ResponseItem>("../assets/mock.response.json")
-            .subscribe((response) => {
-                this.itemsData.next(response.items);
-            });
-    }
+  constructor(private http: HttpClient) {}
 
-    updateData(updateData: SearchItem[]) {
-        this.itemsData.next(updateData);
-    }
+  private apiKey = 'AIzaSyDCTkLFEuwj1gxGyjOzRuaAxkaI_UYWRdE';
+  private apiUrl = 'https://www.googleapis.com/youtube/v3';
 
-    updateValue(updatedValue: string) {
-        this.filteringWords.next(updatedValue);
-    }
+  searchItemText = new Subject<string>();;
 
-    getWords() {
-        return this.filteringWords.asObservable();
-    }
+  getVideoIds(query: string) {
+    const params = new HttpParams()
+      .set('part', 'snippet')
+      .set('type', 'video')
+      .set('q', query)
+      .set('maxResults', '10')
+      .set('key', this.apiKey);
 
-    // Sort data using 'Views' button from another component
-    updateViewsBoolean(updatedValue: boolean) {
-        this.viewsIsAscending.next(updatedValue);
-    }
+      return this.http.get<any>(`${this.apiUrl}/search`, { params }).pipe(map(res => res.items.map((item: { id: { videoId: any; }; }) => item.id.videoId)), map(array => array.join(',')));
+  }
 
-    sortAscending(data: SearchItem[]) {
-        return data.sort(
-            (a: SearchItem, b: SearchItem) => Number(new Date(a.snippet.publishedAt))
-        - Number(new Date(b.snippet.publishedAt))
-        );
-    }
+  getVideos(ids: string) {
+    const params = new HttpParams()
+      .set('part', 'snippet,statistics')
+      .set('id', ids)
+      .set('key', this.apiKey);
 
-    sortDescending(data: SearchItem[]) {
-        return data.sort(
-            (a: SearchItem, b: SearchItem) => Number(new Date(b.snippet.publishedAt))
-        - Number(new Date(a.snippet.publishedAt))
-        );
-    }
+      return this.http.get<ResponseItem>(`${this.apiUrl}/videos`, { params }).pipe(map(res => res.items))
+  }
 
-    sortByLikesAscending(data: SearchItem[]) {
-        return data.sort(
-            (a: SearchItem, b: SearchItem) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount)
-        );
-    }
+  updateData(updateData: SearchItem[]) {
+    this.itemsData.next(updateData);
+  }
 
-    sortByLikesDescending(data: SearchItem[]) {
-        return data.sort(
-            (a: SearchItem, b: SearchItem) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount)
-        );
-    }
+  updateValue(updatedValue: string) {
+    this.filteringWords.next(updatedValue);
+  }
+
+  getWords() {
+    return this.filteringWords.asObservable();
+  }
+
+  // Sort data using 'Views' button from another component
+  updateViewsBoolean(updatedValue: boolean) {
+    this.viewsIsAscending.next(updatedValue);
+  }
+
+  sortAscending(data: SearchItem[]) {
+    return data.sort(
+      (a: SearchItem, b: SearchItem) =>
+        Number(new Date(a.snippet.publishedAt)) -
+        Number(new Date(b.snippet.publishedAt))
+    );
+  }
+
+  sortDescending(data: SearchItem[]) {
+    return data.sort(
+      (a: SearchItem, b: SearchItem) =>
+        Number(new Date(b.snippet.publishedAt)) -
+        Number(new Date(a.snippet.publishedAt))
+    );
+  }
+
+  sortByLikesAscending(data: SearchItem[]) {
+    return data.sort(
+      (a: SearchItem, b: SearchItem) =>
+        Number(a.statistics.viewCount) - Number(b.statistics.viewCount)
+    );
+  }
+
+  sortByLikesDescending(data: SearchItem[]) {
+    return data.sort(
+      (a: SearchItem, b: SearchItem) =>
+        Number(b.statistics.viewCount) - Number(a.statistics.viewCount)
+    );
+  }
 }
