@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject, switchMap } from 'rxjs';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { Subject, Subscription, switchMap } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { ItemsService } from '../../services/items.service';
 
 @Component({
@@ -9,15 +9,28 @@ import { ItemsService } from '../../services/items.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   username = this.authService.username$;
   showHideSettings = false;
 
+  hideOrShowLogOut = false;
+  logoutSub!: Subscription;
+
   @Output() shareToggleSettings = new EventEmitter<boolean>();
 
-  constructor(private itemsService: ItemsService, private authService: AuthService, private router: Router) {}
+  constructor(
+    private itemsService: ItemsService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
-  getInput(e: any){
+  ngOnInit(){
+    this.logoutSub = this.authService.showLogOut.subscribe(value => {
+      this.hideOrShowLogOut = value;
+    })
+  }
+
+  getInput(e: any) {
     this.itemsService.searchItemText.next(e.target.value);
   }
 
@@ -31,5 +44,9 @@ export class HeaderComponent {
       this.showHideSettings = !this.showHideSettings;
       this.shareToggleSettings.emit(this.showHideSettings);
     }
+  }
+
+  ngOnDestroy(){
+    this.logoutSub.unsubscribe();
   }
 }

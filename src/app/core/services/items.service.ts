@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, map } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, debounceTime, map } from 'rxjs';
 
-import { SearchItem } from '../../youtube/models/search-item.model';
+import { SearchItem, SearchItemSnippet } from '../../youtube/models/search-item.model';
 import { ResponseItem } from '../../youtube/models/search-response.model';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class ItemsService {
   private apiKey = 'AIzaSyDCTkLFEuwj1gxGyjOzRuaAxkaI_UYWRdE';
   private apiUrl = 'https://www.googleapis.com/youtube/v3';
 
-  searchItemText = new Subject<string>();;
+  searchItemText = new Subject<string>();
 
   getVideoIds(query: string) {
     const params = new HttpParams()
@@ -31,7 +31,12 @@ export class ItemsService {
       .set('maxResults', '10')
       .set('key', this.apiKey);
 
-      return this.http.get<any>(`${this.apiUrl}/search`, { params }).pipe(map(res => res.items.map((item: { id: { videoId: any; }; }) => item.id.videoId)), map(array => array.join(',')));
+     return this.http.get<ResponseItem>(`${this.apiUrl}/search`, { params }).pipe(
+      map((res) =>
+        res.items.map(item => (<SearchItemSnippet>item).id.videoId)
+      ),
+      map((array) => array.join(','))
+    );
   }
 
   getVideos(ids: string) {
@@ -40,7 +45,11 @@ export class ItemsService {
       .set('id', ids)
       .set('key', this.apiKey);
 
-      return this.http.get<ResponseItem>(`${this.apiUrl}/videos`, { params }).pipe(map(res => res.items))
+    return this.http
+      .get<ResponseItem>(`${this.apiUrl}/videos`, { params })
+      .pipe(
+        map((res) => res.items)
+      );
   }
 
   updateData(updateData: SearchItem[]) {

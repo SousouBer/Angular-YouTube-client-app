@@ -6,6 +6,9 @@ import { BehaviorSubject } from "rxjs";
 })
 export class AuthService {
     isLoggedIn = false;
+
+    showLogOut = new BehaviorSubject(false);
+
     usernameValue = new BehaviorSubject("");
     username$ = this.usernameValue.asObservable();
 
@@ -20,12 +23,14 @@ export class AuthService {
     login(username: string) {
         localStorage.setItem("username", username);
         this.isLoggedIn = true;
+        this.showLogOut.next(true);
     }
 
     logout() {
         localStorage.removeItem("username");
         this.saveUsernameValue("");
         this.isLoggedIn = false;
+        this.showLogOut.next(false);
     }
 
     getTheValue() {
@@ -33,6 +38,7 @@ export class AuthService {
             const savedUsername = localStorage.getItem("username");
             this.saveUsernameValue(savedUsername as string);
             this.isLoggedIn = true;
+            this.showLogOut.next(true);
         }
     }
 }

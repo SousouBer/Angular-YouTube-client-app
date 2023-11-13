@@ -2,10 +2,10 @@
   <div class="item-details-container">
     <button class="back-button" routerLink="/main"><</button>
     <div
-      [ngStyle]="{ width: itemObject.snippet.thumbnails.standard.width }"
+      [ngStyle]="{ width: itemObject.snippet.thumbnails.standard?.width }"
       class="image-wrapper"
     >
-      <img [src]="itemObject.snippet.thumbnails.maxres.url" alt="item image" />
+      <img [src]="itemObject.snippet.thumbnails.maxres?.url" alt="item image" />
     </div>
     <div [appSetBottomBorder]="itemObject.snippet.publishedAt" class="item-details">
       <div class="title-date">
