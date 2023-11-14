@@ -1,34 +1,105 @@
 <section class="admin-page">
   <div class="admin-container">
     <h3 class="card-title">Create a new card</h3>
-      <form class="card-creation-form">
-        <div class="d-flex">
-          <label for="title" class="title">Title</label>
-          <input type="text" id="title" class="title-input">
-        </div>
-        <div class="d-flex">
-          <label for="title" class="title">Description</label>
-          <input type="text" id="title" class="title-input">
-        </div>
-        <div class="d-flex">
-          <label for="title" class="title">img</label>
-          <input type="text" id="title" class="title-input">
-        </div>
-        <div class="d-flex">
-          <label for="title" class="title">Video link</label>
-          <input type="text" id="title" class="title-input">
-        </div>
-        <!-- <div class="password-field">
-          <label for="password" class="password">password</label>
-          <input type="password" id="password" class="password-input">
-        </div> -->
-        <div class="d-flex">
-          <label for="title" class="title">Creation Date</label>
-          <input type="date" id="title" class="title-input">
-        </div>
-        <div class="button-wrapper">
-          <button class="button" type="submit">Create link</button>
-        </div>
-      </form>
+    <form
+      [formGroup]="cardCreationForm"
+      class="card-creation-form"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="d-flex">
+        <label for="title" class="title">Title</label>
+        <input
+          formControlName="title"
+          type="text"
+          id="title"
+          class="title-input"
+        />
+        <span
+          *ngIf="
+            title?.invalid &&
+            title?.touched && !title?.errors?.['minlength'] && !title?.errors?.['maxlength']
+          "
+          >Please, enter a valid title</span
+        >
+        <span
+          *ngIf="title?.errors?.['minlength']"
+          >Enter a min of 3 characters</span
+        >
+        <span
+          *ngIf="title?.errors?.['maxlength']"
+          >Enter a max of 20 characters</span
+        >
+      </div>
+      <div class="d-flex">
+        <label for="title" class="title">Description</label>
+        <input
+          formControlName="description"
+          type="text"
+          id="title"
+          class="title-input"
+        />
+        <span
+          *ngIf="description?.errors?.['maxlength']"
+          >The description is too long, enter a min of 20 characters</span
+        >
+      </div>
+      <div class="d-flex">
+        <label for="title" class="title">img</label>
+        <input
+          formControlName="imgLink"
+          type="text"
+          id="title"
+          class="title-input"
+        />
+        <span
+          *ngIf="
+          imgLink?.invalid &&
+            imgLink?.touched
+          "
+          >Please enter a link to the image</span
+        >
+      </div>
+      <div class="d-flex">
+        <label for="title" class="title">Video link</label>
+        <input
+          formControlName="videoLink"
+          type="text"
+          id="title"
+          class="title-input"
+        />
+        <span
+          *ngIf="
+          videoLink?.invalid &&
+          videoLink?.touched
+          "
+          >Please enter a link to the video</span
+        >
+      </div>
+      <div class="d-flex">
+        <label for="title" class="title">Creation Date</label>
+        <input
+          formControlName="creationDate"
+          type="date"
+          id="title"
+          class="title-input"
+        />
+        <span
+          *ngIf="
+          creationDate?.invalid &&
+          creationDate?.touched && !creationDate?.errors?.['dateIsInValid']
+          "
+          >Please enter a creation date</span
+        >
+        <span
+          *ngIf="
+          creationDate?.errors?.['dateIsInValid']
+          "
+          >The date is invalid</span
+        >
+      </div>
+      <div class="button-wrapper">
+        <button class="button" type="submit">Create link</button>
+      </div>
+    </form>
   </div>
 </section>
