@@ -2,16 +2,21 @@
   <div class="login-container">
     <h3 class="login-title">Login</h3>
       <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onSubmit()">
-        <div class="username-field">
-          <label for="username" class="username">login</label>
-          <input formControlName="username" type="text" id="username" class="username-input" required>
-          <span *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="warning-message">Please, enter a valid username</span>
+        <div class="input-field">
+          <label for="username">login</label>
+          <input formControlName="username" type="text" id="username" required>
+          <span *ngIf="username?.invalid && username?.touched" class="warning-message">Please, enter a valid username</span>
         </div>
-        <div class="password-field">
-          <label for="password" class="password">password</label>
-          <input formControlName="password" type="password" id="password" class="password-input">
-          <span *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched && !loginForm.get('password')?.errors?.['weakPassword']" class="warning-message">Please, enter a valid password</span>
-          <ul *ngIf="loginForm.get('password')?.errors?.['weakPassword']" class="warning-message">Your password isn't strong enough, consider:
+        <div class="input-field">
+          <label for="email">E-mail</label>
+          <input formControlName="email" type="email" id="email" required>
+          <span *ngIf="email?.invalid && email?.touched" class="warning-message">Please, enter a valid email</span>
+        </div>
+        <div class="input-field">
+          <label for="password">password</label>
+          <input formControlName="password" type="password" id="password">
+          <span *ngIf="password?.invalid && password?.touched && !password?.errors?.['weakPassword']" class="warning-message">Please, enter a valid password</span>
+          <ul *ngIf="password?.errors?.['weakPassword']" class="warning-message">Your password isn't strong enough, consider:
             <li>at least 8 characters</li>
             <li>a mixture of both uppercase and lowercase letters
             </li>

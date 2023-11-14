@@ -7,12 +7,11 @@
       (ngSubmit)="onSubmit()"
     >
       <div class="d-flex">
-        <label for="title" class="title">Title</label>
+        <label for="title">Title</label>
         <input
           formControlName="title"
           type="text"
           id="title"
-          class="title-input"
         />
         <span
           *ngIf="
@@ -31,12 +30,11 @@
         >
       </div>
       <div class="d-flex">
-        <label for="title" class="title">Description</label>
+        <label for="description">Description</label>
         <input
           formControlName="description"
           type="text"
-          id="title"
-          class="title-input"
+          id="description"
         />
         <span
           *ngIf="description?.errors?.['maxlength']"
@@ -44,12 +42,11 @@
         >
       </div>
       <div class="d-flex">
-        <label for="title" class="title">img</label>
+        <label for="img-link">Image link</label>
         <input
           formControlName="imgLink"
           type="text"
-          id="title"
-          class="title-input"
+          id="img-link"
         />
         <span
           *ngIf="
@@ -60,12 +57,11 @@
         >
       </div>
       <div class="d-flex">
-        <label for="title" class="title">Video link</label>
+        <label for="video-link">Video link</label>
         <input
           formControlName="videoLink"
           type="text"
-          id="title"
-          class="title-input"
+          id="video-link"
         />
         <span
           *ngIf="
@@ -76,12 +72,11 @@
         >
       </div>
       <div class="d-flex">
-        <label for="title" class="title">Creation Date</label>
+        <label for="date">Creation Date</label>
         <input
           formControlName="creationDate"
           type="date"
-          id="title"
-          class="title-input"
+          id="date"
         />
         <span
           *ngIf="
@@ -98,10 +93,10 @@
         >
       </div>
       <div formArrayName="tags" class="d-flex">
-        <button type="button" [disabled]="tags?.length === 5" (click)="onAddTag()">Add a Tag</button>
+        <button type="button" [disabled]="tags.length === 5" (click)="onAddTag()">Add a Tag</button>
         <div class="d-flex" *ngFor="let tagControl of tags?.['controls']; let i = index">
           <input type="text" [formControlName]="i">
-          <span *ngIf="tags?.['controls']?.[i]?.touched">You cannot leave this field empty</span>
+          <span *ngIf="tags?.['controls']?.[i]?.touched && tags?.['controls']?.[i]?.invalid">You cannot leave this field empty</span>
         </div>
       </div>
       <div class="button-wrapper">
