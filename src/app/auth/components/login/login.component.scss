@@ -49,7 +49,7 @@
   margin-top: 2rem;
 }
 
-.login-button {
+.login-button:enabled {
   color: #FFFFFF;
   font-weight: 400;
   font-family: inherit;
@@ -63,7 +63,7 @@
   transition: all 0.5s ease;
 }
 
-.login-button:hover {
+.login-button:hover:enabled {
   background-color: #5EA2FF;
 }
 

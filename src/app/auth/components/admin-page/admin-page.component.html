@@ -97,9 +97,18 @@
           >The date is invalid</span
         >
       </div>
-      <div class="button-wrapper">
-        <button class="button" type="submit">Create link</button>
+      <div formArrayName="tags" class="d-flex">
+        <button type="button" [disabled]="tags?.length === 5" (click)="onAddTag()">Add a Tag</button>
+        <div class="d-flex" *ngFor="let tagControl of tags?.['controls']; let i = index">
+          <input type="text" [formControlName]="i">
+          <span *ngIf="tags?.['controls']?.[i]?.touched">You cannot leave this field empty</span>
+        </div>
       </div>
+      <div class="button-wrapper">
+      <button class="btn btn-reset" type="button" (click)="onReset()">Reset</button>
+        <button class="btn btn-submit" type="submit" [disabled]="cardCreationForm.invalid">Create link</button>
+      </div>
+      <span *ngIf="cardCreationForm.invalid && cardCreationForm.touched">The form is in valid</span>
     </form>
   </div>
 </section>

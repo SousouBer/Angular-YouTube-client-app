@@ -14,8 +14,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        // RouterModule.forChild([{ path: "", component: LoginComponent }])
-        RouterModule.forChild([{ path: "", component: AdminPageComponent }])
+        RouterModule.forChild([{ path: "", component: LoginComponent }])
     ],
     exports: [LoginComponent, RouterModule]
 })

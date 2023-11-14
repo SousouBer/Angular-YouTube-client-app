@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-page',
@@ -22,6 +22,7 @@ export class AdminPageComponent implements OnInit {
       imgLink: new FormControl(null, Validators.required),
       videoLink: new FormControl(null, Validators.required),
       creationDate: new FormControl(null, [Validators.required, this.validateDate.bind(this)]),
+      tags: new FormArray([new FormControl(null, Validators.required)], Validators.maxLength(5))
     });
   }
 
@@ -45,15 +46,35 @@ export class AdminPageComponent implements OnInit {
     return this.cardCreationForm.get('creationDate');
   }
 
+  get tags(){
+    return <FormArray>this.cardCreationForm.get('tags');
+  }
+
   validateDate(control: FormControl): { [s: string]: boolean } | null {
     const date = control.value;
+
     if(new Date(date) > new Date()){
       return { dateIsInValid: true }
     }
     return null;
   }
 
+  onAddTag(){
+    (<FormArray>this.tags).push(new FormControl(null, Validators.required));
+  }
+
+  resetValues(){
+    this.cardCreationForm.reset();
+    this.tags.clear();
+    this.tags.push(new FormControl(null, Validators.required));
+  }
+
+  onReset(){
+    this.resetValues();
+  }
+
   onSubmit() {
     console.log(this.cardCreationForm.value);
+    this.resetValues();
   }
 }
