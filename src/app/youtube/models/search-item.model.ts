@@ -16,22 +16,22 @@ export interface SearchItem {
 }
 
 export interface SearchItemSnippet {
-  etag: string;
-  id: {
+    etag: string;
+    id: {
+        kind: string;
+        videoId: string;
+    }
     kind: string;
-    videoId: string;
-  }
-  kind: string;
-  snippet: {
-    channelId: string;
-    channelTitle: string;
-    description: string;
-    liveBroadcastContent: string;
-    publishTime: string;
-    publishedAt: string;
-    thumbnails: Thumbnails;
-    title: string;
-  };
+    snippet: {
+        channelId: string;
+        channelTitle: string;
+        description: string;
+        liveBroadcastContent: string;
+        publishTime: string;
+        publishedAt: string;
+        thumbnails: Thumbnails;
+        title: string;
+    };
 }
 
 interface Snippet {
@@ -48,7 +48,7 @@ interface Thumbnails {
     high: Thumbnail;
     standard?: Thumbnail;
     maxres?: Thumbnail
-  };
+}
 
 interface Thumbnail {
     url: string;

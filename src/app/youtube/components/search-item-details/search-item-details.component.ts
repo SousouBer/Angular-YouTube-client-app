@@ -26,7 +26,7 @@ export class SearchItemDetailsComponent implements OnInit, OnDestroy {
             const item = items.find((item) => item.id === this.id);
             this.itemObject = item as SearchItem;
         });
-        console.log(this.itemObject)
+        console.log(this.itemObject);
     }
 
     ngOnDestroy(): void {

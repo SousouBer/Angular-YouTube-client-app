@@ -1,10 +1,10 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 
+import { AdminPageComponent } from "./components/admin-page/admin-page.component";
 import { LoginComponent } from "./components/login/login.component";
-import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 @NgModule({
     declarations: [
