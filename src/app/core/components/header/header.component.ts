@@ -6,6 +6,11 @@ import { Subscription } from "rxjs";
 import { AuthService } from "src/app/auth/services/auth.service";
 
 import { ItemsService } from "../../services/items.service";
+import { Store } from "@ngrx/store";
+import { Actions } from "@ngrx/effects";
+import { loadItems } from "src/app/store/actions/actions";
+import { selectYoutubeItems } from "src/app/store/selectors/selectors";
+import { AppState } from "src/app/store/reducers/reducers";
 
 @Component({
     selector: "app-header",
@@ -16,6 +21,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     username = this.authService.username$;
     showHideSettings = false;
 
+    value = '';
+
     hideOrShowLogOut = false;
     logoutSub!: Subscription;
 
@@ -24,7 +31,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     constructor(
         private itemsService: ItemsService,
         private authService: AuthService,
-        private router: Router
+        private router: Router,
+        private store: Store<AppState>
     ) {}
 
     ngOnInit() {
@@ -35,7 +43,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     getInput(e: any) {
         this.itemsService.searchItemText.next(e.target.value);
+        const value = e.target as HTMLInputElement;
+
     }
+
+    onClick(){
+      this.store.dispatch(loadItems({ searchInput: this.value }))
+      // this.store.select(selectYoutubeItems).subscribe(data => console.log(data));
+}
 
     onLogOut() {
         this.authService.logout();
@@ -48,6 +63,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
             this.shareToggleSettings.emit(this.showHideSettings);
         }
     }
+
+    // onClick(){
+    //   this.store.dispatch(loadItems());
+    // }
 
     ngOnDestroy() {
         this.logoutSub.unsubscribe();

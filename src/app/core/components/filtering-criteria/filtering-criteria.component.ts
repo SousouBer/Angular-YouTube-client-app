@@ -1,6 +1,9 @@
 import { Component } from "@angular/core";
+import * as Actions from "../../../store/actions/actions"
 
 import { ItemsService } from "../../services/items.service";
+import { AppState } from "src/app/store/reducers/reducers";
+import { Store } from "@ngrx/store";
 
 @Component({
     selector: "app-filtering-criteria",
@@ -9,10 +12,11 @@ import { ItemsService } from "../../services/items.service";
 })
 export class FilteringCriteriaComponent {
     filterByWords = "";
+
     isAscending = false;
     likesIsAscending = false;
 
-    constructor(private itemsService: ItemsService) {}
+    constructor(private itemsService: ItemsService, private store: Store<AppState>) {}
 
     updateValue() {
         this.itemsService.updateValue(this.filterByWords);
@@ -20,12 +24,16 @@ export class FilteringCriteriaComponent {
 
     filterByDate() {
         this.isAscending = !this.isAscending;
+        this.store.dispatch(Actions.filterByDate({ value: this.isAscending }))
 
         this.itemsService.viewsIsAscending.next(this.isAscending);
     }
 
     filterByViews() {
         this.likesIsAscending = !this.likesIsAscending;
+        this.store.dispatch(Actions.sortByLikes({ value: this.likesIsAscending }))
+
+
         this.itemsService.likesIsAscending.next(this.likesIsAscending);
     }
 }

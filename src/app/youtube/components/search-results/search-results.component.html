@@ -1,4 +1,4 @@
 <section class="search-results">
-  <app-search-item *ngFor="let item of SearchItems | filterItems:filter" [searchItem]="item"></app-search-item>
-  <h1> {{ headerData | async }}</h1>
+  <app-search-item *ngFor="let item of searchItems$ | async | filterItems:filter" [searchItem]="item"></app-search-item>
+  <!-- <app-search-item *ngFor="let item of searchItems" [searchItem]="item"></app-search-item> -->
 </section>

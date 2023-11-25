@@ -1,9 +1,13 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Subscription } from "rxjs";
+// import { Observable, Subscription } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { ItemsService } from "src/app/core/services/items.service";
 
 import { SearchItem } from "../../models/search-item.model";
+import { AppState } from "src/app/store/reducers/reducers";
+import { Store } from "@ngrx/store";
+import { selectYoutubeItems } from "src/app/store/selectors/selectors";
 
 @Component({
     selector: "app-search-item-details",
@@ -13,23 +17,30 @@ import { SearchItem } from "../../models/search-item.model";
 export class SearchItemDetailsComponent implements OnInit, OnDestroy {
     id = "";
     itemObject!: SearchItem;
-    recieveSearchItems!: Subscription;
+    // recieveSearchItems!: Subscription;
+    recieveSearchItems$!: Observable<SearchItem[]>;
+    sub!: Subscription;
 
-    constructor(private itemsService: ItemsService, private route: ActivatedRoute) { }
+    constructor(private itemsService: ItemsService, private route: ActivatedRoute, private store: Store<AppState>) { }
 
     ngOnInit(): void {
         this.route.params.subscribe((params) => {
             this.id = params["id"];
         });
 
-        this.recieveSearchItems = this.itemsService.itemsData.subscribe((items) => {
+        this.recieveSearchItems$ = this.store.select(selectYoutubeItems);
+
+        this.sub = this.recieveSearchItems$.subscribe((items) => {
             const item = items.find((item) => item.id === this.id);
             this.itemObject = item as SearchItem;
         });
+
+
+
         console.log(this.itemObject);
     }
 
     ngOnDestroy(): void {
-        this.recieveSearchItems.unsubscribe();
+        this.sub.unsubscribe();
     }
 }
