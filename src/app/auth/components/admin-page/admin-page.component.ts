@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import {
     FormArray, FormControl, FormGroup, Validators
 } from "@angular/forms";
+import { Store } from "@ngrx/store";
+import { AppState, CustomCard } from "src/app/store/reducers/reducers";
+import * as SearchItemActions from '../../../store/actions/actions';
 
 @Component({
     selector: "app-admin-page",
@@ -10,6 +13,8 @@ import {
 })
 export class AdminPageComponent implements OnInit {
     cardCreationForm!: FormGroup;
+
+    constructor(private store: Store<AppState>){}
 
     ngOnInit(): void {
         this.cardCreationForm = new FormGroup({
@@ -74,7 +79,9 @@ export class AdminPageComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.cardCreationForm.value);
+        const customCard: CustomCard = this.cardCreationForm.value;
+
+        this.store.dispatch(SearchItemActions.addCard({ card: customCard }))
         this.resetValues();
     }
 }

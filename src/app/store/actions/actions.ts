@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { SearchItem } from "src/app/youtube/models/search-item.model";
-import { CardsState } from "../reducers/reducers";
+import { CardsState, CustomCard } from "../reducers/reducers";
 
 export const loadItems = createAction(
   '[Header Search] load items',
@@ -10,11 +10,6 @@ export const loadItems = createAction(
 export const success = createAction(
   '[Header API] Data Success',
   props< { items: SearchItem[] }>()
-)
-
-export const addCard = createAction(
-  '[Main] Add Card',
-  props<{  card: CardsState  }>()
 )
 
 export const getSearchItem = createAction(
@@ -30,4 +25,10 @@ export const markFavourite = createAction(
 export const removeFromFavourite = createAction(
   '[Youtube Item] Remove From Favourite',
   props<{ id: string }>()
+)
+
+// Custom Cards
+export const addCard = createAction(
+  '[Admin Page] Add Card',
+  props<{  card: CustomCard  }>()
 )

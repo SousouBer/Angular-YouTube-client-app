@@ -7,7 +7,6 @@
       <div class="search-input">
         <form class="search-form">
           <input class="search-input" name="search-item" type="text" [(ngModel)]="value" />
-          <h3> {{ value }} </h3>
           <button class="search-btn" (click)="onClick()">Search</button>
         </form>
       </div>
@@ -15,6 +14,7 @@
         <img class="configuration" src="assets/logos/search_settings.png" alt="Configuration">
       </a>
       <button class="favourite-page" routerLink="/favourite-page">Favourite page</button>
+      <button class="favourite-page" routerLink="/custom-cards">Custom Cards</button>
     </div>
     <div class="login-info">
       <span class="username">{{ username | async }}</span>

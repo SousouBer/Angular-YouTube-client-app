@@ -16,11 +16,13 @@ import { ItemsEffects } from "./store/effects/loaditems.effects";
 import { addCard } from "./store/actions/actions";
 import { FavouritePageComponent } from "./youtube/components/favourite-page/favourite-page.component";
 import { AuthguardService } from "./core/services/authguard.service";
+import { CustomCardsComponent } from "./youtube/components/custom-cards/custom-cards.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/main", pathMatch: "full" },
     { path: "create-card", component: AdminPageComponent },
     { path: "favourite-page", component: FavouritePageComponent},
+    { path: "custom-cards", component: CustomCardsComponent},
     { path: "login", loadChildren: () => import("./auth/auth.module").then((m) => m.AuthModule) },
     { path: "main", loadChildren: () => import("./youtube/youtube.module").then((m) => m.YoutubeModule) },
     { path: "**", component: InvalidPageComponent }

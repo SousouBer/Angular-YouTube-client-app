@@ -71,10 +71,12 @@ export const requestItems = createReducer(
   })
 );
 
+// Custom Cards Reducers
+
 export const requestCards = createReducer(
   initialStateC,
-  on(SearchItemActions.addCard, (state, action) => ({
+  on(SearchItemActions.addCard, (state, { card }) => ({
     ...state,
-    cards: [],
+    cards: [...state.cards, card],
   }))
 );
