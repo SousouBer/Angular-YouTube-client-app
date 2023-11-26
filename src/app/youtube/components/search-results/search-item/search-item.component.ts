@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
 
 import { SearchItem } from "../../../models/search-item.model";
+import { Store } from "@ngrx/store";
+import { AppState } from "src/app/store/reducers/reducers";
+import * as SearchItemActions from '../../../../store/actions/actions';
 
 @Component({
     selector: "app-search-item",
@@ -11,8 +14,13 @@ export class SearchItemComponent implements OnInit {
     @Input() searchItem!: SearchItem;
     videoThumbnail = "";
 
+    constructor(private store: Store<AppState>){}
+
     ngOnInit(): void {
         this.videoThumbnail = this.searchItem.snippet.thumbnails.medium.url;
+    }
 
+    markAsFavourite(){
+      this.store.dispatch(SearchItemActions.markFavourite({ id: this.searchItem.id }))
     }
 }

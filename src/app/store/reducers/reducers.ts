@@ -22,16 +22,14 @@ export interface AppState {
 
 export interface YoutubeItemsState {
   items: SearchItem[];
-  filteredByDate: SearchItem[];
-  filteredByLikes: SearchItem[];
+  favouriteItems: SearchItem[];
   isLoading: boolean;
   error: string | null;
 }
 
 export const initialStateY: YoutubeItemsState = {
   items: [],
-  filteredByDate: [],
-  filteredByLikes: [],
+  favouriteItems: [],
   isLoading: false,
   error: null,
 };

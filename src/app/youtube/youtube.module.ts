@@ -12,6 +12,7 @@ import { MainPageComponent } from "./pages/main-page/main-page.component";
 import { FilterPipe } from "./pipes/filter.pipe";
 import { DateSortPipe } from "./pipes/sort-date.pipe";
 import { SortbyViewsPipe } from "./pipes/sort-views.pipe";
+import { FavouritePageComponent } from './components/favourite-page/favourite-page.component';
 
 const routes: Routes = [
     { path: "", component: MainPageComponent, canActivate: [AuthguardService] },
@@ -19,7 +20,7 @@ const routes: Routes = [
         path: "detailed-information/:id",
         component: SearchItemDetailsComponent,
         canActivate: [AuthguardService],
-    },
+    }
 ];
 
 @NgModule({
@@ -32,6 +33,7 @@ const routes: Routes = [
         SortbyViewsPipe,
         MainPageComponent,
         SearchItemDetailsComponent,
+        FavouritePageComponent,
     ],
     imports: [CommonModule, CustomButtonComponent, RouterModule.forChild(routes)],
     exports: [

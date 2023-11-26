@@ -12,9 +12,3 @@ export const selectYoutubeItems = createSelector(
   }
 );
 
-export const selectSortedItems = createSelector(
-  getYoutubeItems,
-  (state: YoutubeItemsState) => {
-    return state.filteredByDate;
-  }
-)

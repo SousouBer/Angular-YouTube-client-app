@@ -7,10 +7,6 @@ export const loadItems = createAction(
   props<{ searchInput: any }>()
 )
 
-// export const success = createAction(
-//   '[Header API] Data Success',
-//   props< { items: SearchItem[] }>()
-// )
 export const success = createAction(
   '[Header API] Data Success',
   props< { items: SearchItem[] }>()
@@ -23,5 +19,10 @@ export const addCard = createAction(
 
 export const getSearchItem = createAction(
   '[Details Page] Get Item Data',
+  props<{ id: string }>()
+)
+
+export const markFavourite = createAction(
+  '[Youtube Item] Mark As Favourite',
   props<{ id: string }>()
 )

@@ -13,6 +13,7 @@ export interface SearchItem {
     };
     defaultAudioLanguage: string;
     statistics: Statistics;
+    markedAsFavourite?: boolean;
 }
 
 export interface SearchItemSnippet {
