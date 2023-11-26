@@ -16,16 +16,6 @@ export const success = createAction(
   props< { items: SearchItem[] }>()
 )
 
-export const filterByDate = createAction(
-  '[Filter Date] Filter By Date',
-  props<{ value: boolean }>()
-)
-
-export const sortByLikes = createAction(
-  '[Sort Button] Sort By Likes',
-  props<{ value: boolean }>()
-)
-
 export const addCard = createAction(
   '[Main] Add Card',
   props<{  card: CardsState  }>()

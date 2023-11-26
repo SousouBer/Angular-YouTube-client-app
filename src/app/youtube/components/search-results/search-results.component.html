@@ -1,4 +1,3 @@
 <section class="search-results">
-  <app-search-item *ngFor="let item of searchItems$ | async | filterItems:filter" [searchItem]="item"></app-search-item>
-  <!-- <app-search-item *ngFor="let item of searchItems" [searchItem]="item"></app-search-item> -->
+  <app-search-item *ngFor="let item of searchItems$ | async | filterItems:filter | sortByDate:dateBoolean$ | sortbyViews:viewBoolean$" [searchItem]="item"></app-search-item>
 </section>

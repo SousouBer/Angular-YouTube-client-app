@@ -14,7 +14,7 @@ export class FilteringCriteriaComponent {
     filterByWords = "";
 
     isAscending = false;
-    likesIsAscending = false;
+    viewIsAscending = false;
 
     constructor(private itemsService: ItemsService, private store: Store<AppState>) {}
 
@@ -24,16 +24,16 @@ export class FilteringCriteriaComponent {
 
     filterByDate() {
         this.isAscending = !this.isAscending;
-        this.store.dispatch(Actions.filterByDate({ value: this.isAscending }))
+        // this.store.dispatch(Actions.filterByDate({ value: this.isAscending }))
 
-        this.itemsService.viewsIsAscending.next(this.isAscending);
+        this.itemsService.dateIsAscending.next(this.isAscending);
     }
 
     filterByViews() {
-        this.likesIsAscending = !this.likesIsAscending;
-        this.store.dispatch(Actions.sortByLikes({ value: this.likesIsAscending }))
+        this.viewIsAscending = !this.viewIsAscending;
+        // this.store.dispatch(Actions.sortByLikes({ value: this.likesIsAscending }))
 
 
-        this.itemsService.likesIsAscending.next(this.likesIsAscending);
+        this.itemsService.viewIsAscending.next(this.viewIsAscending);
     }
 }

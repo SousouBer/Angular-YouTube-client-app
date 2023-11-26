@@ -12,11 +12,18 @@ import { ResponseItem } from "../../youtube/models/search-response.model";
 })
 export class ItemsService {
     filteringWords = new BehaviorSubject<string>("");
-    viewsIsAscending = new BehaviorSubject<boolean>(false);
-    likesIsAscending = new BehaviorSubject<boolean>(false);
-    itemsData = new BehaviorSubject<SearchItem[]>([]);
 
-    data = this.itemsData.asObservable();
+    dateIsAscending = new Subject<boolean | null>();
+    dateStream$ = this.dateIsAscending.asObservable();
+
+    viewIsAscending = new Subject<boolean | null>();
+    viewStream$ = this.viewIsAscending.asObservable();
+
+    // viewsIsAscending = new BehaviorSubject<boolean | null>(false);
+    // likesIsAscending = new BehaviorSubject<boolean>(false);
+    // itemsData = new BehaviorSubject<SearchItem[]>([]);
+
+    // data = this.itemsData.asObservable();
 
     constructor(private http: HttpClient) {}
 
@@ -52,9 +59,9 @@ export class ItemsService {
             );
     }
 
-    updateData(updateData: SearchItem[]) {
-        this.itemsData.next(updateData);
-    }
+    // updateData(updateData: SearchItem[]) {
+    //     this.itemsData.next(updateData);
+    // }
 
     updateValue(updatedValue: string) {
         this.filteringWords.next(updatedValue);
@@ -65,9 +72,9 @@ export class ItemsService {
     }
 
     // Sort data using 'Views' button from another component
-    updateViewsBoolean(updatedValue: boolean) {
-        this.viewsIsAscending.next(updatedValue);
-    }
+    // updateViewsBoolean(updatedValue: boolean) {
+    //     this.viewsIsAscending.next(updatedValue);
+    // }
 
     sortAscending(data: SearchItem[]) {
         return data.sort(

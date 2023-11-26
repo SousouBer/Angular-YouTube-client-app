@@ -10,6 +10,8 @@ import { SearchResultsComponent } from "./components/search-results/search-resul
 import { BottomBorderDirective } from "./directives/bottom-border.directive";
 import { MainPageComponent } from "./pages/main-page/main-page.component";
 import { FilterPipe } from "./pipes/filter.pipe";
+import { DateSortPipe } from "./pipes/sort-date.pipe";
+import { SortbyViewsPipe } from "./pipes/sort-views.pipe";
 
 const routes: Routes = [
     { path: "", component: MainPageComponent, canActivate: [AuthguardService] },
@@ -26,6 +28,8 @@ const routes: Routes = [
         SearchResultsComponent,
         BottomBorderDirective,
         FilterPipe,
+        DateSortPipe,
+        SortbyViewsPipe,
         MainPageComponent,
         SearchItemDetailsComponent,
     ],

@@ -56,40 +56,7 @@ export const requestItems = createReducer(
   on(SearchItemActions.success, (state, action) => ({
     ...state,
     items: action.items,
-  })),
-  on(SearchItemActions.filterByDate, (state, { value }) => {
-    const itemsToSort = [...state.items];
-
-    if (value) {
-      itemsToSort.sort(
-        (a: SearchItem, b: SearchItem) =>
-          Number(new Date(a.snippet.publishedAt)) -
-          Number(new Date(b.snippet.publishedAt))
-      );
-    } else {
-      itemsToSort.sort(
-        (a: SearchItem, b: SearchItem) =>
-          Number(new Date(b.snippet.publishedAt)) -
-          Number(new Date(a.snippet.publishedAt))
-      );
-    }
-    return { ...state, items: itemsToSort };
-  }),
-  on(SearchItemActions.sortByLikes, (state, { value }) => {
-    const itemsToSortLikes = [...state.items];
-
-    if(value){
-      itemsToSortLikes.sort(
-        (a: SearchItem, b: SearchItem) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount)
-    )
-    } else {
-      itemsToSortLikes.sort(
-        (a: SearchItem, b: SearchItem) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount)
-    )
-  }
-  return { ...state, items: itemsToSortLikes }
-
-  })
+  }))
 );
 
 export const requestCards = createReducer(
