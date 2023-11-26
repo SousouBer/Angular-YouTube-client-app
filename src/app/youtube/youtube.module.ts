@@ -13,6 +13,7 @@ import { FilterPipe } from "./pipes/filter.pipe";
 import { DateSortPipe } from "./pipes/sort-date.pipe";
 import { SortbyViewsPipe } from "./pipes/sort-views.pipe";
 import { FavouritePageComponent } from './components/favourite-page/favourite-page.component';
+import { FavouriteItemComponent } from './components/favourite-page/favourite-item/favourite-item.component';
 
 const routes: Routes = [
     { path: "", component: MainPageComponent, canActivate: [AuthguardService] },
@@ -34,6 +35,7 @@ const routes: Routes = [
         MainPageComponent,
         SearchItemDetailsComponent,
         FavouritePageComponent,
+        FavouriteItemComponent,
     ],
     imports: [CommonModule, CustomButtonComponent, RouterModule.forChild(routes)],
     exports: [

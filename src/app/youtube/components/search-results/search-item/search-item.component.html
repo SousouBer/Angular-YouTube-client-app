@@ -29,7 +29,8 @@
     <!-- <div class="favourite">
       <button class="heart-btn"></button>
     </div> -->
-    <span (click)="markAsFavourite()">Mark as favourite</span>
+    <span *ngIf="!searchItem.markedAsFavourite" (click)="markAsFavourite()">Mark As Favourite</span>
+    <span *ngIf="searchItem.markedAsFavourite" (click)="removeFromFavourite()">Remove From Favourite</span>
   </div>
   <app-custom-button [routerLink]="['detailed-information', searchItem.id]" class="card-btn">more...</app-custom-button>
 </div>

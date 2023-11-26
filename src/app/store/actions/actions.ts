@@ -26,3 +26,8 @@ export const markFavourite = createAction(
   '[Youtube Item] Mark As Favourite',
   props<{ id: string }>()
 )
+
+export const removeFromFavourite = createAction(
+  '[Youtube Item] Remove From Favourite',
+  props<{ id: string }>()
+)

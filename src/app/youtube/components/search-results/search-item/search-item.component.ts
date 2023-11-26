@@ -23,4 +23,9 @@ export class SearchItemComponent implements OnInit {
     markAsFavourite(){
       this.store.dispatch(SearchItemActions.markFavourite({ id: this.searchItem.id }))
     }
+
+    removeFromFavourite(){
+      this.store.dispatch(SearchItemActions.removeFromFavourite({ id: this.searchItem.id }))
+
+    }
 }

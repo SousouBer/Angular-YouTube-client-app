@@ -54,7 +54,21 @@ export const requestItems = createReducer(
   on(SearchItemActions.success, (state, action) => ({
     ...state,
     items: action.items,
-  }))
+  })),
+  on(SearchItemActions.markFavourite, (state, { id }) => {
+    const updatedItems = state.items.map(item =>
+      item.id === id ? { ...item, markedAsFavourite: true } : item
+    );
+
+    return { ...state, items: updatedItems };
+  }),
+  on(SearchItemActions.removeFromFavourite, (state, { id }) => {
+    const updatedItems = state.items.map(item =>
+      item.id === id ? { ...item, markedAsFavourite: undefined } : item
+    );
+
+    return { ...state, items: updatedItems };
+  })
 );
 
 export const requestCards = createReducer(
