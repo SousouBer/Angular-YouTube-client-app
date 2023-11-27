@@ -10,70 +10,22 @@ import { selectCardItems } from 'src/app/store/selectors/selectors';
   styleUrls: ['./custom-cards.component.scss'],
 })
 export class CustomCardsComponent implements OnInit {
-  cards: CustomCard[] = [
-    {
-      title: 'First card',
-      description: 'lorem loremlorem loremlorem loremlorem loremloremdasd asfasas s fsa g s gsd gdgdsg mm, s. sadhsajf asI amd eifnitely dong to do it a lot like that ,than toy bery jych!!! ',
-      imgLink: 'https://www.matthiasmeier.io/static/8eed1a632a61fa3f71c8a433ad42fe9f/e015f/rxjs_angular.jpg',
-      videoLink: 'Video Link',
-      creationDate: '2015-05-03',
-    },
-    {
-      title: 'First card',
-      description: 'lorem loremlorem loremlorem loremlorem loremloremdasd asfasas s fsa g s gsd gdgdsg mm, s. sadhsajf asI amd eifnitely dong to do it a lot like that ,than toy bery jych!!! ',
-      imgLink: 'https://www.matthiasmeier.io/static/8eed1a632a61fa3f71c8a433ad42fe9f/e015f/rxjs_angular.jpg',
-      videoLink: 'Video Link',
-      creationDate: '2015-05-03',
-    },
-    {
-      title: 'First card',
-      description: 'lorem loremlorem loremlorem loremlorem loremloremdasd asfasas s fsa g s gsd gdgdsg mm, s. sadhsajf asI amd eifnitely dong to do it a lot like that ,than toy bery jych!!! ',
-      imgLink: 'https://www.matthiasmeier.io/static/8eed1a632a61fa3f71c8a433ad42fe9f/e015f/rxjs_angular.jpg',
-      videoLink: 'Video Link',
-      creationDate: '2015-05-03',
-    },
-    {
-      title: 'First card',
-      description: 'lorem loremlorem loremlorem loremlorem loremloremdasd asfasas s fsa g s gsd gdgdsg mm, s. sadhsajf asI amd eifnitely dong to do it a lot like that ,than toy bery jych!!! ',
-      imgLink: 'https://www.matthiasmeier.io/static/8eed1a632a61fa3f71c8a433ad42fe9f/e015f/rxjs_angular.jpg',
-      videoLink: 'Video Link',
-      creationDate: '2015-05-03',
-    },
-    {
-      title: 'First card',
-      description: 'lorem loremlorem loremlorem loremlorem loremloremdasd asfasas s fsa g s gsd gdgdsg mm, s. sadhsajf asI amd eifnitely dong to do it a lot like that ,than toy bery jych!!! ',
-      imgLink: 'https://www.matthiasmeier.io/static/8eed1a632a61fa3f71c8a433ad42fe9f/e015f/rxjs_angular.jpg',
-      videoLink: 'Video Link',
-      creationDate: '2015-05-03',
-    },
-    {
-      title: 'First card',
-      description: 'lorem loremlorem loremlorem loremlorem loremloremdasd asfasas s fsa g s gsd gdgdsg mm, s. sadhsajf asI amd eifnitely dong to do it a lot like that ,than toy bery jych!!! ',
-      imgLink: 'https://www.matthiasmeier.io/static/8eed1a632a61fa3f71c8a433ad42fe9f/e015f/rxjs_angular.jpg',
-      videoLink: 'Video Link',
-      creationDate: '2015-05-03',
-    },
-    {
-      title: 'First card',
-      description: 'lorem loremlorem loremlorem loremlorem loremloremdasd asfasas s fsa g s gsd gdgdsg mm, s. sadhsajf asI amd eifnitely dong to do it a lot like that ,than toy bery jych!!! ',
-      imgLink: 'https://www.matthiasmeier.io/static/8eed1a632a61fa3f71c8a433ad42fe9f/e015f/rxjs_angular.jpg',
-      videoLink: 'Video Link',
-      creationDate: '2015-05-03',
-    },
-    {
-      title: 'First card',
-      description: 'lorem loremlorem loremlorem loremlorem loremloremdasd asfasas s fsa g s gsd gdgdsg mm, s. sadhsajf asI amd eifnitely dong to do it a lot like that ,than toy bery jych!!! ',
-      imgLink: 'https://www.matthiasmeier.io/static/8eed1a632a61fa3f71c8a433ad42fe9f/e015f/rxjs_angular.jpg',
-      videoLink: 'Video Link',
-      creationDate: '2015-05-03',
-    }
-  ];
+  // cards: CustomCard[] = [
+  //   {
+  //     id: 'fasfasfsaf',
+  //     title: 'First card',
+  //     description: 'lorem loremlorem loremlorem loremlorem loremloremdasd asfasas s fsa g s gsd gdgdsg mm, s. sadhsajf asI amd eifnitely dong to do it a lot like that ,than toy bery jych!!! ',
+  //     imgLink: 'https://www.matthiasmeier.io/static/8eed1a632a61fa3f71c8a433ad42fe9f/e015f/rxjs_angular.jpg',
+  //     videoLink: 'Video Link',
+  //     creationDate: '2015-05-03',
+  //   }
+  // ];
 
-  // cards$: Observable<CustomCard[]>;
+  cards$: Observable<CustomCard[]>;
 
-  // constructor(private store: Store<AppState>) {
-  //   this.cards$ = this.store.select(selectCardItems)
-  // }
+  constructor(private store: Store<AppState>) {
+    this.cards$ = this.store.select(selectCardItems)
+  }
 
   ngOnInit(): void {}
 }

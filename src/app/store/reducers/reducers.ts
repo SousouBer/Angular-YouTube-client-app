@@ -4,6 +4,7 @@ import * as SearchItemActions from '../actions/actions';
 import { SearchItem } from 'src/app/youtube/models/search-item.model';
 
 export interface CustomCard {
+  id: string;
   title: string;
   description: string;
   imgLink: string;
@@ -78,5 +79,10 @@ export const requestCards = createReducer(
   on(SearchItemActions.addCard, (state, { card }) => ({
     ...state,
     cards: [...state.cards, card],
-  }))
+  })),
+  on(SearchItemActions.removeCard, (state, { id }) => {
+    const updatedCards = state.cards.filter(card => card.id !== id);
+
+    return { ...state, cards: updatedCards }
+  })
 );

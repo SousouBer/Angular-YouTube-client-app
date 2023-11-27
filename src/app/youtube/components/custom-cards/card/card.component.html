@@ -12,4 +12,5 @@
     <h4 class="date">{{ card.creationDate | date }}</h4>
     <a class="video-link" [href]="card.videoLink">Visit the video</a>
   </div>
+  <button class="remove-card-btn" (click)="onRemoveCard()">Remove Card</button>
 </div>

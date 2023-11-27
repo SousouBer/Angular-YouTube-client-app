@@ -79,7 +79,9 @@ export class AdminPageComponent implements OnInit {
     }
 
     onSubmit() {
+        const id = "" + Math.random();
         const customCard: CustomCard = this.cardCreationForm.value;
+        customCard['id'] = id;
 
         this.store.dispatch(SearchItemActions.addCard({ card: customCard }))
         this.resetValues();

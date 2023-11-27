@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CustomCard } from 'src/app/store/reducers/reducers';
+import { Store } from '@ngrx/store';
+import { removeCard } from 'src/app/store/actions/actions';
+import { AppState, CustomCard } from 'src/app/store/reducers/reducers';
 
 @Component({
   selector: 'app-card',
@@ -9,9 +11,13 @@ import { CustomCard } from 'src/app/store/reducers/reducers';
 export class CardComponent implements OnInit {
   @Input() card!: CustomCard;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
+  }
+
+  onRemoveCard(){
+    this.store.dispatch(removeCard({ id: this.card.id }));
   }
 
 }

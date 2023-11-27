@@ -1,6 +1,7 @@
 <section class="cards-section">
   <div class="cards-container">
-    <!-- <app-card *ngFor="let card of cards$ | async" [card]="card"></app-card> -->
-    <app-card *ngFor="let card of cards" [card]="card"></app-card>
+    <app-card *ngFor="let card of cards$ | async" [card]="card"></app-card>
+    <!-- <app-card *ngFor="let card of cards" [card]="card"></app-card> -->
   </div>
+  <p *ngIf="(cards$ | async)?.length === 0" class="empty-cards">The page is currently empty. Make a new card.</p>
 </section>
