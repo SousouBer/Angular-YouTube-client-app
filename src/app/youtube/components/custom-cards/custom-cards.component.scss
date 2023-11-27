@@ -1,0 +1,11 @@
+.cards-section {
+  padding: 2rem;
+}
+
+.cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}

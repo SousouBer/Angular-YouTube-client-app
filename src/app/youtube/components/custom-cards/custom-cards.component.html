@@ -1,1 +1,6 @@
-<p>custom-cards works!</p>
+<section class="cards-section">
+  <div class="cards-container">
+    <!-- <app-card *ngFor="let card of cards$ | async" [card]="card"></app-card> -->
+    <app-card *ngFor="let card of cards" [card]="card"></app-card>
+  </div>
+</section>

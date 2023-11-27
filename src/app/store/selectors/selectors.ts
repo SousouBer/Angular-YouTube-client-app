@@ -2,8 +2,12 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { AppState, CardsState, YoutubeItemsState } from '../reducers/reducers';
 
 export const getYoutubeItems = (state: AppState) => {
-  return state.youtubeItems
+  return state.youtubeItems;
 };
+
+export const getCustomCards = (state: AppState) => {
+  return state.customCards;
+}
 
 export const selectFavouriteItems = createSelector(
   getYoutubeItems,
@@ -19,3 +23,9 @@ export const selectYoutubeItems = createSelector(
   }
 );
 
+export const selectCardItems = createSelector(
+  getCustomCards,
+  (state: CardsState) => {
+    return state.cards;
+  }
+)
