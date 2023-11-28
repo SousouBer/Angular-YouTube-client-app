@@ -29,3 +29,11 @@ export const selectCardItems = createSelector(
     return state.cards;
   }
 )
+
+export const selectYoutubeAndCards = createSelector(
+  getCustomCards,
+  getYoutubeItems,
+  (cardsState, youtubeItemsState) => {
+    return [ ...cardsState.cards, ...youtubeItemsState.items ]
+  }
+)

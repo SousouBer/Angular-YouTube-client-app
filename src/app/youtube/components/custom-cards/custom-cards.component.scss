@@ -1,4 +1,5 @@
 .cards-section {
+  position: relative;
   padding: 2rem;
 }
 
@@ -14,4 +15,25 @@
   margin-top: 2rem;
   font-size: 2.5rem;
   text-align: center;
+}
+
+.back-button {
+  background-color: #2F80ED;
+  margin-left: 5rem;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 2rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-100%, 0);
+  cursor: pointer;
+  border: none;
+  transition: all 0.5s ease;
+}
+
+.back-button:hover {
+  background-color: #5EA2FF;
 }

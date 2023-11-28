@@ -4,8 +4,8 @@ import { ItemsService } from 'src/app/core/services/items.service';
 
 import { SearchItem } from '../../models/search-item.model';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/reducers/reducers';
-import { selectYoutubeItems } from 'src/app/store/selectors/selectors';
+import { AppState, CustomCard } from 'src/app/store/reducers/reducers';
+import { selectYoutubeAndCards, selectYoutubeItems } from 'src/app/store/selectors/selectors';
 
 @Component({
   selector: 'app-search-results',
@@ -13,7 +13,7 @@ import { selectYoutubeItems } from 'src/app/store/selectors/selectors';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnDestroy {
-  searchItems$!: Observable<SearchItem[]>;
+  searchItems$!: Observable<(CustomCard | SearchItem)[]>;
 
   words!: Subscription;
   dateAscending!: Subscription;
@@ -27,7 +27,7 @@ export class SearchResultsComponent implements OnDestroy {
     private itemsService: ItemsService,
     private store: Store<AppState>
   ) {
-    this.searchItems$ = this.store.select(selectYoutubeItems);
+    this.searchItems$ = this.store.select(selectYoutubeAndCards);
   }
 
   ngOnInit(): void {
@@ -45,6 +45,17 @@ export class SearchResultsComponent implements OnDestroy {
         this.viewBoolean$ = value;
       }
     );
+  }
+
+  // isCustomCard(el: CustomCard | SearchItem): el is CustomCard {
+  //   console.log(el);
+  //   return (el as CustomCard).creationDate !== undefined;
+  // }
+
+  isCustomCard(item: CustomCard | SearchItem): item is CustomCard {
+    const res = (item as CustomCard).creationDate !== undefined;
+    console.log(res);
+    return res;
   }
 
   ngOnDestroy(): void {

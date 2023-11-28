@@ -1,31 +1,35 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { SearchItem } from '../models/search-item.model';
+import { CustomCard } from 'src/app/store/reducers/reducers';
 
 @Pipe({
   name: 'sortByDate',
 })
 export class DateSortPipe implements PipeTransform {
-  transform(value: SearchItem[] | null, dateAscending: boolean | null) {
+  transform(value: (CustomCard | SearchItem)[] | null, dateAscending: boolean | null) {
     if (value === null || dateAscending === null) {
       return value;
     }
 
-    const sortedResult: SearchItem[] = [...(value as SearchItem[])];
+    const customCards = value.filter(card => (<CustomCard>card).description);
+    const youtubeItems = value.filter(item => (<SearchItem>item).snippet);
+
+    let sortedResult: (SearchItem | CustomCard)[] = [];
 
     if (dateAscending) {
-      sortedResult.sort(
+      (<SearchItem[]>youtubeItems).sort(
         (a: SearchItem, b: SearchItem) =>
           Number(new Date(a.snippet.publishedAt)) -
           Number(new Date(b.snippet.publishedAt))
       );
     } else if (!dateAscending) {
-      sortedResult.sort(
+      (<SearchItem[]>youtubeItems).sort(
         (a: SearchItem, b: SearchItem) =>
           Number(new Date(b.snippet.publishedAt)) -
           Number(new Date(a.snippet.publishedAt))
       );
     }
 
-    return sortedResult;
+    return sortedResult = [...customCards, ...youtubeItems];;
   }
 }

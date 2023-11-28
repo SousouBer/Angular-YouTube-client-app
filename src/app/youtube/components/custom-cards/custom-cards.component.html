@@ -1,5 +1,6 @@
 <section class="cards-section">
   <div class="cards-container">
+    <button class="back-button" routerLink="/main"><</button>
     <app-card *ngFor="let card of cards$ | async" [card]="card"></app-card>
     <!-- <app-card *ngFor="let card of cards" [card]="card"></app-card> -->
   </div>
