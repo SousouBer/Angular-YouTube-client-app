@@ -19,15 +19,22 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin: 2rem 0;
 }
 
-.pagination-section button {
+.pagination-btn {
   border: none;
   background-color: transparent;
   cursor: pointer;
   font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+  text-decoration: underline;
 }
 
 .page-content {
   font-size: 2rem;
+  font-weight: 700;
 }

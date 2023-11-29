@@ -50,7 +50,6 @@ export const selectTotalPageCount = createSelector(
     let value = Math.floor(state.length / itemsPerPage);
     const threshold = 0.5;
 
-    // Check if the decimal part is greater than the threshold
     if (state.length - value > threshold) {
       return value + 1; // Round up
     } else {

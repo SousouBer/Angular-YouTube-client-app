@@ -32,14 +32,6 @@ export class LoginComponent implements OnInit {
         }
     }
 
-    // onLogin(form: NgForm) {
-    //   if (form.valid) {
-    //     this.authService.login(form.value.username);
-    //     this.authService.saveUsernameValue(form.value.username);
-    //     this.router.navigate(['/main']);
-    //   }
-    // }
-
     get username() {
         return this.loginForm.get("username");
     }

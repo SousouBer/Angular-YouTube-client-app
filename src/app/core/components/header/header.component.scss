@@ -116,7 +116,7 @@
   background-color: #5EA2FF;
 }
 
-.favourite-page {
+.application-pages {
   background-color: #2F80ED;
   color: #fff;
   border: none;
@@ -129,6 +129,10 @@
   transition: all 0.3s ease;
 }
 
-.favourite-page:hover {
+.application-pages:hover {
+  background-color: #5EA2FF;
+}
+
+.active-route {
   background-color: #5EA2FF;
 }

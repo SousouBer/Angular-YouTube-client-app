@@ -13,8 +13,9 @@
       <a class="settings-container" (click)="toggleSettings()">
         <img class="configuration" src="assets/logos/search_settings.png" alt="Configuration">
       </a>
-      <button class="favourite-page" routerLink="/favourite-page">Favourite page</button>
-      <button class="favourite-page" routerLink="/custom-cards">Custom Cards</button>
+      <button class="application-pages" routerLink="/main" routerLinkActive="active-route">Main Page</button>
+      <button class="application-pages" routerLink="/favourite-page" routerLinkActive="active-route">Favourite Page</button>
+      <button class="application-pages" routerLink="/custom-cards" routerLinkActive="active-route">Custom Cards</button>
     </div>
     <div class="login-info">
       <span class="username">{{ username | async }}</span>

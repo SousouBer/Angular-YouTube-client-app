@@ -13,23 +13,11 @@ import { ResponseItem } from "../../youtube/models/search-response.model";
 export class ItemsService {
     filteringWords = new BehaviorSubject<string>("");
 
-    currentPage = new BehaviorSubject<number>(1);
-    getCurrentPage$ = this.currentPage.asObservable();
-
-    pagesCount = new BehaviorSubject<number>(0);
-    getPagesCount$ = this.pagesCount.asObservable();
-
     dateIsAscending = new Subject<boolean | null>();
     dateStream$ = this.dateIsAscending.asObservable();
 
     viewIsAscending = new Subject<boolean | null>();
     viewStream$ = this.viewIsAscending.asObservable();
-
-    // viewsIsAscending = new BehaviorSubject<boolean | null>(false);
-    // likesIsAscending = new BehaviorSubject<boolean>(false);
-    // itemsData = new BehaviorSubject<SearchItem[]>([]);
-
-    // data = this.itemsData.asObservable();
 
     constructor(private http: HttpClient) {}
 
@@ -63,14 +51,6 @@ export class ItemsService {
             .pipe(
                 map((res) => res.items)
             );
-    }
-
-    updateCurrentPage(value: number){
-      this.currentPage.next(value);
-    }
-
-    updatePagesCount(value: number){
-      this.pagesCount.next(value);
     }
 
     updateValue(updatedValue: string) {

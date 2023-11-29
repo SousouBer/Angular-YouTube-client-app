@@ -20,8 +20,8 @@
     </p>
   </div>
   <div *ngIf="(searchItems$ | async)?.length !== 0" class="pagination-section">
-    <button *ngIf="(currentPage$ | async) !== 1" (click)="previousPage()">Previous Page</button>
-    <span class="page-content">Page: {{ currentPage$ | async }} of {{ pagesCount$ | async }}</span>
-    <button *ngIf="(currentPage$ | async) !== (pagesCount$ | async)" (click)="nextPage()">Next Page</button>
+    <button class="pagination-btn" *ngIf="(currentPage$ | async) !== 1" (click)="previousPage()">Previous Page</button>
+    <span class="page-content">{{ currentPage$ | async }} / {{ pagesCount$ | async }}</span>
+    <button class="pagination-btn" *ngIf="(currentPage$ | async) !== (pagesCount$ | async)" (click)="nextPage()">Next Page</button>
   </div>
 </section>
