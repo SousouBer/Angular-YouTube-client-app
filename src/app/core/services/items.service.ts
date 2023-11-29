@@ -13,6 +13,12 @@ import { ResponseItem } from "../../youtube/models/search-response.model";
 export class ItemsService {
     filteringWords = new BehaviorSubject<string>("");
 
+    currentPage = new BehaviorSubject<number>(1);
+    getCurrentPage$ = this.currentPage.asObservable();
+
+    pagesCount = new BehaviorSubject<number>(0);
+    getPagesCount$ = this.pagesCount.asObservable();
+
     dateIsAscending = new Subject<boolean | null>();
     dateStream$ = this.dateIsAscending.asObservable();
 
@@ -37,7 +43,7 @@ export class ItemsService {
             .set("part", "snippet")
             .set("type", "video")
             .set("q", query)
-            .set("maxResults", "10")
+            .set("maxResults", "50")
             .set("key", this.apiKey);
 
         return this.http.get<ResponseItem>(`${this.apiUrl}/search`, { params }).pipe(
@@ -59,9 +65,13 @@ export class ItemsService {
             );
     }
 
-    // updateData(updateData: SearchItem[]) {
-    //     this.itemsData.next(updateData);
-    // }
+    updateCurrentPage(value: number){
+      this.currentPage.next(value);
+    }
+
+    updatePagesCount(value: number){
+      this.pagesCount.next(value);
+    }
 
     updateValue(updatedValue: string) {
         this.filteringWords.next(updatedValue);
@@ -69,40 +79,5 @@ export class ItemsService {
 
     getWords() {
         return this.filteringWords.asObservable();
-    }
-
-    // Sort data using 'Views' button from another component
-    // updateViewsBoolean(updatedValue: boolean) {
-    //     this.viewsIsAscending.next(updatedValue);
-    // }
-
-    sortAscending(data: SearchItem[]) {
-        return data.sort(
-            (a: SearchItem, b: SearchItem) => Number(new Date(a.snippet.publishedAt))
-        - Number(new Date(b.snippet.publishedAt))
-        );
-    }
-
-    // sortByDate(value: boolean){
-    //   this.store.dis
-    // }
-
-    sortDescending(data: SearchItem[]) {
-        return data.sort(
-            (a: SearchItem, b: SearchItem) => Number(new Date(b.snippet.publishedAt))
-        - Number(new Date(a.snippet.publishedAt))
-        );
-    }
-
-    sortByLikesAscending(data: SearchItem[]) {
-        return data.sort(
-            (a: SearchItem, b: SearchItem) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount)
-        );
-    }
-
-    sortByLikesDescending(data: SearchItem[]) {
-        return data.sort(
-            (a: SearchItem, b: SearchItem) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount)
-        );
     }
 }

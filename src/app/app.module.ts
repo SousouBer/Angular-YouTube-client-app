@@ -10,7 +10,7 @@ import { CoreModule } from "./core/core.module";
 import { InvalidPageComponent } from "./core/pages/invalid-page/invalid-page.component";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "src/environments/environment";
-import { requestCards, requestItems } from "./store/reducers/reducers";
+import { getPagesData, requestCards, requestItems } from "./store/reducers/reducers";
 import { EffectsModule } from "@ngrx/effects";
 import { ItemsEffects } from "./store/effects/loaditems.effects";
 import { addCard } from "./store/actions/actions";
@@ -41,6 +41,7 @@ const routes: Routes = [
         EffectsModule.forRoot([ItemsEffects]),
         StoreModule.forFeature('youtubeItems', requestItems),
         StoreModule.forFeature('customCards', requestCards),
+        StoreModule.forFeature('currentPage', getPagesData),
         StoreDevtoolsModule.instrument({
           maxAge: 25,
           logOnly: environment.production

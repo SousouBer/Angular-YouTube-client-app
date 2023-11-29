@@ -19,7 +19,10 @@ export interface CardsState {
 export interface AppState {
   youtubeItems: YoutubeItemsState;
   customCards: CardsState;
+  currentPage: number;
 }
+
+export const initialStateCurrentPage: number = 1;
 
 export interface YoutubeItemsState {
   items: SearchItem[];
@@ -38,17 +41,6 @@ export const initialStateY: YoutubeItemsState = {
 export const initialStateC: CardsState = {
   cards: [],
 };
-
-// export const initialState: AppState = {
-//   youtubeItems: {
-//     items: [],
-//     isLoading: false,
-//     error: null
-//    },
-//   customCards: {
-//     cards: []
-//   }
-// }
 
 export const requestItems = createReducer(
   initialStateY,
@@ -86,3 +78,9 @@ export const requestCards = createReducer(
     return { ...state, cards: updatedCards }
   })
 );
+
+export const getPagesData = createReducer(
+  initialStateCurrentPage,
+  on(SearchItemActions.updateCurrentPage, (state) => (state + 1)),
+  on(SearchItemActions.decreaseCurrentPage, (state) => (state - 1))
+)

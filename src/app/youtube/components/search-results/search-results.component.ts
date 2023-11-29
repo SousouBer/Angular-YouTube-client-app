@@ -5,7 +5,8 @@ import { ItemsService } from 'src/app/core/services/items.service';
 import { SearchItem } from '../../models/search-item.model';
 import { Store } from '@ngrx/store';
 import { AppState, CustomCard } from 'src/app/store/reducers/reducers';
-import { selectYoutubeAndCards, selectYoutubeItems } from 'src/app/store/selectors/selectors';
+import { getCurrentPage, selectCurrentPageItems, selectTotalPageCount, selectYoutubeAndCards, selectYoutubeItems } from 'src/app/store/selectors/selectors';
+import { decreaseCurrentPage, updateCurrentPage } from 'src/app/store/actions/actions';
 
 @Component({
   selector: 'app-search-results',
@@ -14,6 +15,12 @@ import { selectYoutubeAndCards, selectYoutubeItems } from 'src/app/store/selecto
 })
 export class SearchResultsComponent implements OnDestroy {
   searchItems$!: Observable<(CustomCard | SearchItem)[]>;
+  // currentPage!: Observable<number>;
+  // pagesCount!: Observable<number>;
+
+  currentPage$!: Observable<number>;
+  pagesCount$!: Observable<number>;
+  // pagesCount: number = 0;
 
   words!: Subscription;
   dateAscending!: Subscription;
@@ -27,7 +34,8 @@ export class SearchResultsComponent implements OnDestroy {
     private itemsService: ItemsService,
     private store: Store<AppState>
   ) {
-    this.searchItems$ = this.store.select(selectYoutubeAndCards);
+    // this.searchItems$ = this.store.select(selectYoutubeAndCards);
+    this.searchItems$ = this.store.select(selectCurrentPageItems);
   }
 
   ngOnInit(): void {
@@ -37,7 +45,6 @@ export class SearchResultsComponent implements OnDestroy {
 
     this.dateAscending = this.itemsService.dateStream$.subscribe((value) => {
       this.dateBoolean$ = value;
-      console.log(this.dateBoolean$);
     });
 
     this.viewIsAscending = this.itemsService.viewIsAscending.subscribe(
@@ -45,17 +52,21 @@ export class SearchResultsComponent implements OnDestroy {
         this.viewBoolean$ = value;
       }
     );
+    this.currentPage$ = this.store.select(getCurrentPage);
+    this.pagesCount$ = this.store.select(selectTotalPageCount);
   }
-
-  // isCustomCard(el: CustomCard | SearchItem): el is CustomCard {
-  //   console.log(el);
-  //   return (el as CustomCard).creationDate !== undefined;
-  // }
 
   isCustomCard(item: CustomCard | SearchItem): item is CustomCard {
     const res = (item as CustomCard).creationDate !== undefined;
-    console.log(res);
     return res;
+  }
+
+  nextPage(){
+    this.store.dispatch(updateCurrentPage())
+  }
+
+  previousPage(){
+    this.store.dispatch(decreaseCurrentPage())
   }
 
   ngOnDestroy(): void {

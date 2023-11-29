@@ -37,3 +37,16 @@ export const removeCard = createAction(
   '[Card Page] Remove Card',
   props<{ id: string }>()
 );
+
+// Pages actions
+// export const updateCurrentPage = createAction(
+//   '[Main Page] Update Current Page',
+//   props<{ page: number }>()
+// )
+export const updateCurrentPage = createAction(
+  '[Main Page] Increase Current Page',
+)
+
+export const decreaseCurrentPage = createAction(
+  '[Main Page] Decrease Current Page'
+)
