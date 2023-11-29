@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CustomCard } from 'src/app/store/reducers/reducers';
 import { SearchItem } from 'src/app/youtube/models/search-item.model';
+import { CustomCard } from '../models/custom-card.model';
 
 @Pipe({
   name: 'filterItems',

@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ItemsService } from 'src/app/core/services/items.service';
 import { exhaustMap, map, switchMap, from, mergeMap } from 'rxjs';
-import { loadItems, success } from '../actions/actions';
+// import { loadItems, success } from '../actions/actions';
 import { SearchItem } from 'src/app/youtube/models/search-item.model';
+import { loadItems, success } from '../actions/youtube-items.actions';
 
 @Injectable()
 export class ItemsEffects {

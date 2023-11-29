@@ -10,13 +10,16 @@ import { CoreModule } from "./core/core.module";
 import { InvalidPageComponent } from "./core/pages/invalid-page/invalid-page.component";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "src/environments/environment";
-import { getPagesData, requestCards, requestItems } from "./store/reducers/reducers";
+// import { getPagesData, requestCards, requestItems } from "./store/reducers/reducers";
 import { EffectsModule } from "@ngrx/effects";
 import { ItemsEffects } from "./store/effects/loaditems.effects";
-import { addCard } from "./store/actions/actions";
+// import { addCard } from "./store/actions/actions";
 import { FavouritePageComponent } from "./youtube/components/favourite-page/favourite-page.component";
 import { AuthguardService } from "./core/services/authguard.service";
 import { CustomCardsComponent } from "./youtube/components/custom-cards/custom-cards.component";
+import { requestItems } from "./store/reducers/youtube-items.reducers";
+import { getPagesData } from "./store/reducers/current-page.reducers";
+import { requestCards } from "./store/reducers/custom-cards.reducers";
 
 const routes: Routes = [
     { path: "", redirectTo: "/main", pathMatch: "full" },

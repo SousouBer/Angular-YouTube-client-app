@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
-import * as Actions from "../../../store/actions/actions"
+// import * as Actions from "../../../store/actions/actions"
 
 import { ItemsService } from "../../services/items.service";
-import { AppState } from "src/app/store/reducers/reducers";
+// import { AppState } from "src/app/store/reducers/reducers";
 import { Store } from "@ngrx/store";
+import { AppState } from "src/app/store/app-state.model";
 
 @Component({
     selector: "app-filtering-criteria",

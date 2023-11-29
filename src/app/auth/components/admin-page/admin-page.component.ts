@@ -3,8 +3,9 @@ import {
     FormArray, FormControl, FormGroup, Validators
 } from "@angular/forms";
 import { Store } from "@ngrx/store";
-import { AppState, CustomCard } from "src/app/store/reducers/reducers";
-import * as SearchItemActions from '../../../store/actions/actions';
+import { addCard } from "src/app/store/actions/custom-card.actions";
+import { AppState } from "src/app/store/app-state.model";
+import { CustomCard } from "src/app/youtube/models/custom-card.model";
 
 @Component({
     selector: "app-admin-page",
@@ -83,7 +84,7 @@ export class AdminPageComponent implements OnInit {
         const customCard: CustomCard = this.cardCreationForm.value;
         customCard['id'] = id;
 
-        this.store.dispatch(SearchItemActions.addCard({ card: customCard }))
+        this.store.dispatch(addCard({ card: customCard }))
         this.resetValues();
     }
 }

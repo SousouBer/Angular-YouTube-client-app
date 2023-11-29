@@ -1,13 +1,12 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-// import { Observable, Subscription } from "rxjs";
 import { Observable, Subscription } from "rxjs";
 import { ItemsService } from "src/app/core/services/items.service";
 
 import { SearchItem } from "../../models/search-item.model";
-import { AppState } from "src/app/store/reducers/reducers";
 import { Store } from "@ngrx/store";
 import { selectYoutubeItems } from "src/app/store/selectors/selectors";
+import { AppState } from "src/app/store/app-state.model";
 
 @Component({
     selector: "app-search-item-details",

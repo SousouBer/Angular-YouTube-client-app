@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from "@angular/core";
 
 import { SearchItem } from "../../../models/search-item.model";
 import { Store } from "@ngrx/store";
-import { AppState } from "src/app/store/reducers/reducers";
-import * as SearchItemActions from '../../../../store/actions/actions';
+import * as SearchItemActions from '../../../../store/actions/youtube-items.actions';
+import { AppState } from "src/app/store/app-state.model";
 
 @Component({
     selector: "app-search-item",

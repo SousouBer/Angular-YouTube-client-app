@@ -4,9 +4,10 @@ import { ItemsService } from 'src/app/core/services/items.service';
 
 import { SearchItem } from '../../models/search-item.model';
 import { Store } from '@ngrx/store';
-import { AppState, CustomCard } from 'src/app/store/reducers/reducers';
-import { getCurrentPage, selectCurrentPageItems, selectTotalPageCount, selectYoutubeAndCards, selectYoutubeItems } from 'src/app/store/selectors/selectors';
-import { decreaseCurrentPage, updateCurrentPage } from 'src/app/store/actions/actions';
+import { getCurrentPage, selectCurrentPageItems, selectTotalPageCount} from 'src/app/store/selectors/selectors';
+import { CustomCard } from '../../models/custom-card.model';
+import { AppState } from 'src/app/store/app-state.model';
+import { decreaseCurrentPage, updateCurrentPage } from 'src/app/store/actions/current-page.actions';
 
 @Component({
   selector: 'app-search-results',

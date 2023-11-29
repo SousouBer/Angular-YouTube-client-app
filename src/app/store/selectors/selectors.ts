@@ -1,5 +1,7 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { AppState, CardsState, YoutubeItemsState } from '../reducers/reducers';
+import { createSelector } from '@ngrx/store';
+import { AppState } from '../app-state.model';
+import { YoutubeItemsState } from '../reducers/youtube-items.reducers';
+import { CardsState } from '../reducers/custom-cards.reducers';
 
 export const getYoutubeItems = (state: AppState) => {
   return state.youtubeItems;
@@ -41,7 +43,6 @@ export const selectYoutubeAndCards = createSelector(
 export const getCurrentPage = (state: AppState) => {
   return state.currentPage;
 };
-
 export const selectTotalPageCount = createSelector(
   selectYoutubeAndCards,
   (state) => {
@@ -55,9 +56,6 @@ export const selectTotalPageCount = createSelector(
     } else {
       return value; // Keep the original integer part
     }
-    // const totalPages = Math.floor((selectYoutubeAndCards.length / 20)) + 1;
-    // return totalPages;
-    // return state.length;
   }
 );
 

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { SearchItem } from '../models/search-item.model';
-import { CustomCard } from 'src/app/store/reducers/reducers';
+import { CustomCard } from '../models/custom-card.model';
 
 @Pipe({
   name: 'sortByDate',

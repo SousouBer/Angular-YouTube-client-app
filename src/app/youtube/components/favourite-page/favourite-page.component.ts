@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from 'src/app/store/reducers/reducers';
 import { SearchItem } from '../../models/search-item.model';
 import { selectFavouriteItems } from 'src/app/store/selectors/selectors';
+import { AppState } from 'src/app/store/app-state.model';
 
 @Component({
   selector: 'app-favourite-page',

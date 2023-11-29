@@ -7,10 +7,8 @@ import { AuthService } from "src/app/auth/services/auth.service";
 
 import { ItemsService } from "../../services/items.service";
 import { Store } from "@ngrx/store";
-import { Actions } from "@ngrx/effects";
-import { loadItems } from "src/app/store/actions/actions";
-import { selectYoutubeItems } from "src/app/store/selectors/selectors";
-import { AppState } from "src/app/store/reducers/reducers";
+import { AppState } from "src/app/store/app-state.model";
+import { loadItems } from "src/app/store/actions/youtube-items.actions";
 
 @Component({
     selector: "app-header",
