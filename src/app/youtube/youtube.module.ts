@@ -4,6 +4,10 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { AuthguardService } from "../core/services/authguard.service";
 import { CustomButtonComponent } from "../custom-button/custom-button.component";
+import { CardComponent } from "./components/custom-cards/card/card.component";
+import { CustomCardsComponent } from "./components/custom-cards/custom-cards.component";
+import { FavouriteItemComponent } from "./components/favourite-page/favourite-item/favourite-item.component";
+import { FavouritePageComponent } from "./components/favourite-page/favourite-page.component";
 import { SearchItemDetailsComponent } from "./components/search-item-details/search-item-details.component";
 import { SearchItemComponent } from "./components/search-results/search-item/search-item.component";
 import { SearchResultsComponent } from "./components/search-results/search-results.component";
@@ -12,10 +16,6 @@ import { MainPageComponent } from "./pages/main-page/main-page.component";
 import { FilterPipe } from "./pipes/filter.pipe";
 import { DateSortPipe } from "./pipes/sort-date.pipe";
 import { SortbyViewsPipe } from "./pipes/sort-views.pipe";
-import { FavouritePageComponent } from './components/favourite-page/favourite-page.component';
-import { FavouriteItemComponent } from './components/favourite-page/favourite-item/favourite-item.component';
-import { CustomCardsComponent } from './components/custom-cards/custom-cards.component';
-import { CardComponent } from './components/custom-cards/card/card.component';
 
 const routes: Routes = [
     { path: "", component: MainPageComponent, canActivate: [AuthguardService] },

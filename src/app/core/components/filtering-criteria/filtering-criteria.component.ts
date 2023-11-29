@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
-
-import { ItemsService } from "../../services/items.service";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/app-state.model";
+
+import { ItemsService } from "../../services/items.service";
 
 @Component({
     selector: "app-filtering-criteria",

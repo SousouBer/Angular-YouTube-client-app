@@ -4,7 +4,7 @@ import {
     BehaviorSubject, map, Subject
 } from "rxjs";
 
-import { SearchItem, SearchItemSnippet } from "../../youtube/models/search-item.model";
+import { SearchItemSnippet } from "../../youtube/models/search-item.model";
 import { ResponseItem } from "../../youtube/models/search-response.model";
 
 @Injectable({

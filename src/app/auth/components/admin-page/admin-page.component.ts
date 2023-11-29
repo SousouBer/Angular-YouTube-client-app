@@ -15,7 +15,7 @@ import { CustomCard } from "src/app/youtube/models/custom-card.model";
 export class AdminPageComponent implements OnInit {
     cardCreationForm!: FormGroup;
 
-    constructor(private store: Store<AppState>){}
+    constructor(private store: Store<AppState>) {}
 
     ngOnInit(): void {
         this.cardCreationForm = new FormGroup({
@@ -80,11 +80,11 @@ export class AdminPageComponent implements OnInit {
     }
 
     onSubmit() {
-        const id = "" + Math.random();
+        const id = `${Math.random()}`;
         const customCard: CustomCard = this.cardCreationForm.value;
-        customCard['id'] = id;
+        customCard.id = id;
 
-        this.store.dispatch(addCard({ card: customCard }))
+        this.store.dispatch(addCard({ card: customCard }));
         this.resetValues();
     }
 }

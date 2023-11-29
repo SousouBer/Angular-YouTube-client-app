@@ -17,6 +17,8 @@
       ],
       "rules": {
         // ESLint rules
+        "no-return-assign": "off",
+        "no-prototype-builtins": "off",
         "max-len": "off",
         "no-restricted-syntax": "off",
         "no-console": "off",

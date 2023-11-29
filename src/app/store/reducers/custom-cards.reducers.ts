@@ -1,24 +1,25 @@
 import { createReducer, on } from "@ngrx/store";
 import { CustomCard } from "src/app/youtube/models/custom-card.model";
+
 import * as CustomCardsActions from "../actions/custom-card.actions";
 
 export interface CardsState {
-  cards: CustomCard[];
+    cards: CustomCard[];
 }
 
 export const initialState: CardsState = {
-  cards: [],
+    cards: [],
 };
 
 export const requestCards = createReducer(
-  initialState,
-  on(CustomCardsActions.addCard, (state, { card }) => ({
-    ...state,
-    cards: [...state.cards, card],
-  })),
-  on(CustomCardsActions.removeCard, (state, { id }) => {
-    const updatedCards = state.cards.filter(card => card.id !== id);
+    initialState,
+    on(CustomCardsActions.addCard, (state, { card }) => ({
+        ...state,
+        cards: [...state.cards, card],
+    })),
+    on(CustomCardsActions.removeCard, (state, { id }) => {
+        const updatedCards = state.cards.filter((card) => card.id !== id);
 
-    return { ...state, cards: updatedCards }
-  })
+        return { ...state, cards: updatedCards };
+    })
 );

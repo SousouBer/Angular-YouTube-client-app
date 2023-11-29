@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CustomCardsComponent } from './custom-cards.component';
+import { CustomCardsComponent } from "./custom-cards.component";
 
-describe('CustomCardsComponent', () => {
-  let component: CustomCardsComponent;
-  let fixture: ComponentFixture<CustomCardsComponent>;
+describe("CustomCardsComponent", () => {
+    let component: CustomCardsComponent;
+    let fixture: ComponentFixture<CustomCardsComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CustomCardsComponent ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [CustomCardsComponent]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(CustomCardsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(CustomCardsComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it("should create", () => {
+        expect(component).toBeTruthy();
+    });
 });

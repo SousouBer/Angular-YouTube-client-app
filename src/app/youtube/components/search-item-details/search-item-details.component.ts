@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { Store } from "@ngrx/store";
 import { Observable, Subscription } from "rxjs";
 import { ItemsService } from "src/app/core/services/items.service";
+import { AppState } from "src/app/store/app-state.model";
+import { selectYoutubeItems } from "src/app/store/selectors/selectors";
 
 import { SearchItem } from "../../models/search-item.model";
-import { Store } from "@ngrx/store";
-import { selectYoutubeItems } from "src/app/store/selectors/selectors";
-import { AppState } from "src/app/store/app-state.model";
 
 @Component({
     selector: "app-search-item-details",
@@ -33,8 +33,6 @@ export class SearchItemDetailsComponent implements OnInit, OnDestroy {
             const item = items.find((item) => item.id === this.id);
             this.itemObject = item as SearchItem;
         });
-
-
 
         console.log(this.itemObject);
     }
