@@ -1,6 +1,7 @@
 # YoutubeClientApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
+With this website, a user can search for Youtube video information by typing the name in the search bar, such as views, likes, counts and comments. At first, a user should log in and pass the validation. After that, other sections of the app will be enabled. To create a new card, a user should click on Admin Page icon at right-top corner. Login information is saved in local storage.
 
 ## Development server
 
