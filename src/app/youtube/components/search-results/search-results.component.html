@@ -1,0 +1,27 @@
+<section class="search-results-section">
+  <div class="search-results">
+    <ng-container
+      *ngFor="
+        let item of searchItems$
+          | async
+          | filterItems : filter
+          | sortByDate : dateBoolean$
+          | sortbyViews : viewBoolean$
+      "
+    >
+        <app-search-item
+          *ngIf="!isCustomCard(item)"
+          [searchItem]="item"
+        ></app-search-item>
+      <app-card *ngIf="isCustomCard(item)" [card]="item"></app-card>
+    </ng-container>
+    <p class="empty-page-message" *ngIf="(searchItems$ | async)?.length === 0">
+      The page is empty. Search for videos!
+    </p>
+  </div>
+  <div *ngIf="(searchItems$ | async)?.length !== 0" class="pagination-section">
+    <button class="pagination-btn" *ngIf="(currentPage$ | async) !== 1" (click)="previousPage()">Previous Page</button>
+    <span class="page-content">{{ currentPage$ | async }} / {{ pagesCount$ | async }}</span>
+    <button class="pagination-btn" *ngIf="(currentPage$ | async) !== (pagesCount$ | async)" (click)="nextPage()">Next Page</button>
+  </div>
+</section>

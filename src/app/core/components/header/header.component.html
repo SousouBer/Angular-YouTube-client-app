@@ -1,0 +1,28 @@
+<header class="header">
+  <div class="header-settings">
+    <div class="header-search">
+      <div class="youtube-logo">
+        <img src="assets/logos/logo.png" alt="Youtube logo">
+      </div>
+      <div class="search-input">
+        <form class="search-form">
+          <input class="search-input" name="search-item" type="text" [(ngModel)]="value" />
+          <button class="search-btn" (click)="onClick()">Search</button>
+        </form>
+      </div>
+      <a class="settings-container" (click)="toggleSettings()">
+        <img class="configuration" src="assets/logos/search_settings.png" alt="Configuration">
+      </a>
+      <button class="application-pages" routerLink="/main" routerLinkActive="active-route">Main Page</button>
+      <button class="application-pages" routerLink="/favourite-page" routerLinkActive="active-route">Favourite Page</button>
+      <button class="application-pages" routerLink="/custom-cards" routerLinkActive="active-route">Custom Cards</button>
+    </div>
+    <div class="login-info">
+      <span class="username">{{ username | async }}</span>
+      <button *ngIf="hideOrShowLogOut" class="logout-btn" (click)="onLogOut()">Log out</button>
+      <a class="login-a" [routerLink]="['/create-card']">
+        <img src="assets/logos/login.png" alt="Login">
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,54 @@
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule, Routes } from "@angular/router";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "src/environments/environment";
+
+import { AppComponent } from "./app.component";
+import { AdminPageComponent } from "./auth/components/admin-page/admin-page.component";
+import { CoreModule } from "./core/core.module";
+import { InvalidPageComponent } from "./core/pages/invalid-page/invalid-page.component";
+import { AuthguardService } from "./core/services/authguard.service";
+import { ItemsEffects } from "./store/effects/loaditems.effects";
+import { getPagesData } from "./store/reducers/current-page.reducers";
+import { requestCards } from "./store/reducers/custom-cards.reducers";
+import { requestItems } from "./store/reducers/youtube-items.reducers";
+import { CustomCardsComponent } from "./youtube/components/custom-cards/custom-cards.component";
+import { FavouritePageComponent } from "./youtube/components/favourite-page/favourite-page.component";
+
+const routes: Routes = [
+    { path: "", redirectTo: "/main", pathMatch: "full" },
+    { path: "create-card", canActivate: [AuthguardService], component: AdminPageComponent },
+    { path: "favourite-page", canActivate: [AuthguardService], component: FavouritePageComponent },
+    { path: "custom-cards", canActivate: [AuthguardService], component: CustomCardsComponent },
+    { path: "login", loadChildren: () => import("./auth/auth.module").then((m) => m.AuthModule) },
+    { path: "main", loadChildren: () => import("./youtube/youtube.module").then((m) => m.YoutubeModule) },
+    { path: "**", component: InvalidPageComponent }
+];
+
+@NgModule({
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        CoreModule,
+        RouterModule.forRoot(routes),
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([ItemsEffects]),
+        StoreModule.forFeature("youtubeItems", requestItems),
+        StoreModule.forFeature("customCards", requestCards),
+        StoreModule.forFeature("currentPage", getPagesData),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production
+        }),
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+})
+export class AppModule {}

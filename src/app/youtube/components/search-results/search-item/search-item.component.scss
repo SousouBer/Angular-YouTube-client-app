@@ -1,0 +1,83 @@
+.card-container {
+  border-radius: 4px;
+  background-color: #e5e5e5;
+  max-width: 26.3rem;
+  padding-bottom: 1rem;
+  min-height: 35rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+img {
+  width: 100%;
+}
+
+.img-container {
+  padding: 1rem;
+  width: 100%;
+}
+
+.card-info {
+  padding: 0.25rem 0 0.5rem 0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card-info div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+}
+
+.card-info img {
+  width: 1.25rem;
+}
+
+.card-title-wrapper {
+  width: 100%;
+  text-align: right;
+  padding: 0 2rem;
+}
+
+.card-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-btn {
+  margin-top: auto;
+}
+
+.card-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  flex-direction: column;
+  align-self: flex-end;
+}
+
+.add-fav-btn, .remove-fav-btn {
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 3px;
+  padding: 0.2rem 0.4rem;
+  transform: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.add-fav-btn:hover {
+  border-bottom: solid 1px #00b300;
+}
+
+.remove-fav-btn:hover {
+  border-bottom: solid 1px #e60000;
+}
+

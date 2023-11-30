@@ -1,0 +1,47 @@
+<section class="item-details-page">
+  <div class="item-details-container">
+    <button class="back-button" routerLink="/main"><</button>
+    <div
+      [ngStyle]="{ width: itemObject.snippet.thumbnails.standard?.width }"
+      class="image-wrapper"
+    >
+      <img [src]="itemObject.snippet.thumbnails.maxres?.url" alt="item image" />
+    </div>
+    <div [appSetBottomBorder]="itemObject.snippet.publishedAt" class="item-details">
+      <div class="title-date">
+        <h3 class="title">{{ itemObject.snippet.title }}</h3>
+        <span class="date">{{ itemObject.snippet.publishedAt | date: 'EEEE, MMMM d, yyyy' }}</span>
+      </div>
+      <div class="description">
+        <h5 class="description-title">Description</h5>
+        <p class="description-text">{{ itemObject.snippet.description }}</p>
+      </div>
+      <div class="statistics">
+        <div class="stat-container">
+          <div class="icon-containe">
+            <img [src]="'/assets/logos/viewed.png'" alt="Views" />
+          </div>
+          <span>{{ itemObject.statistics.viewCount }}</span>
+        </div>
+        <div class="stat-container">
+          <div class="icon-containe">
+            <img [src]="'/assets/logos/liked.png'" alt="Likes" />
+          </div>
+          <span>{{ itemObject.statistics.likeCount }}</span>
+        </div>
+        <div class="stat-container">
+          <div class="icon-containe">
+            <img [src]="'/assets/logos/dislike.png'" alt="Dislikes" />
+          </div>
+          <span>{{ itemObject.statistics.dislikeCount }}</span>
+        </div>
+        <div class="stat-container">
+          <div class="icon-containe">
+            <img [src]="'/assets/logos/comments.png'" alt="Comments" />
+          </div>
+          <span>{{ itemObject.statistics.commentCount }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

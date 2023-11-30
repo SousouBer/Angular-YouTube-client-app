@@ -1,0 +1,5 @@
+<section class="favourite-page">
+  <div class="favourite-page-container">
+    <app-search-item *ngFor="let favItem of favItems$ | async" [searchItem]="favItem"></app-search-item>
+  </div>
+</section>

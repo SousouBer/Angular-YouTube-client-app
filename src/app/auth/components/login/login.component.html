@@ -1,0 +1,32 @@
+<section class="login-page">
+  <div class="login-container">
+    <h3 class="login-title">Login</h3>
+      <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onSubmit()">
+        <div class="input-field">
+          <label for="username">login</label>
+          <input formControlName="username" type="text" id="username" required>
+          <span *ngIf="username?.invalid && username?.touched" class="warning-message">Please, enter a valid username</span>
+        </div>
+        <div class="input-field">
+          <label for="email">E-mail</label>
+          <input formControlName="email" type="email" id="email" required>
+          <span *ngIf="email?.invalid && email?.touched" class="warning-message">Please, enter a valid email</span>
+        </div>
+        <div class="input-field">
+          <label for="password">password</label>
+          <input formControlName="password" type="password" id="password">
+          <span *ngIf="password?.invalid && password?.touched && !password?.errors?.['weakPassword']" class="warning-message">Please, enter a valid password</span>
+          <ul *ngIf="password?.errors?.['weakPassword']" class="warning-message">Your password isn't strong enough, consider:
+            <li>at least 8 characters</li>
+            <li>a mixture of both uppercase and lowercase letters
+            </li>
+            <li>a mixture of letters and numbers</li>
+            <li>inclusion of at least one special character, e.g., ! @ # ? ]</li>
+          </ul>
+        </div>
+        <div class="login-button-wrapper">
+          <button [disabled]="loginForm.invalid" class="login-button" type="submit">Login</button>
+        </div>
+      </form>
+  </div>
+</section>

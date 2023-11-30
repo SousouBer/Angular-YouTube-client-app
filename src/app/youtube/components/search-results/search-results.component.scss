@@ -1,0 +1,40 @@
+.search-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: #fff;
+  width: 100%;
+}
+
+.empty-page-message {
+  margin-top: 2rem;
+  font-size: 3rem;
+}
+
+// Pagination section
+.pagination-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.pagination-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+  text-decoration: underline;
+}
+
+.page-content {
+  font-size: 2rem;
+  font-weight: 700;
+}

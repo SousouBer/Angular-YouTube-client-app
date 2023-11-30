@@ -1,0 +1,16 @@
+<div class="custom-card-container" [appSetBottomBorder]="card.creationDate">
+  <div class="img-wrapper">
+    <img [src]="card.imgLink" alt="Card image" />
+  </div>
+  <div class="card-title-wrapper">
+    <h3 class="custom-card-title">{{ card.title }}</h3>
+  </div>
+  <div class="card-info">
+    <p class="card-description">{{ card.description }}</p>
+  </div>
+  <div class="video-link-wrapper">
+    <h4 class="date">{{ card.creationDate | date }}</h4>
+    <a class="video-link" [href]="card.videoLink">Visit the video</a>
+  </div>
+  <button class="remove-card-btn" (click)="onRemoveCard()">Remove Card</button>
+</div>
